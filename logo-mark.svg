@@ -1,0 +1,17 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Amaely heart mark">
+  <defs>
+    <linearGradient id="heartGrad" x1="18" y1="22" x2="102" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF6F91"/>
+      <stop offset="0.5" stop-color="#FF7A59"/>
+      <stop offset="1" stop-color="#FFC07A"/>
+    </linearGradient>
+    <linearGradient id="sparkGrad" x1="80" y1="12" x2="104" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF1D6"/>
+      <stop offset="1" stop-color="#FFC98B"/>
+    </linearGradient>
+  </defs>
+  <path d="M60,100 C60,100 18,72 18,46 C18,33 28,25 38,25 C46,25 53,30 60,40 C67,30 74,25 82,25 C92,25 102,33 102,46 C102,72 60,100 60,100 Z" fill="url(#heartGrad)"/>
+  <ellipse cx="41" cy="43" rx="11" ry="8" fill="#FFFFFF" opacity="0.28" transform="rotate(-30 41 43)"/>
+  <path d="M92,12 C92,22.2 93.8,24 104,24 C93.8,24 92,25.8 92,36 C92,25.8 90.2,24 80,24 C90.2,24 92,22.2 92,12 Z" fill="url(#sparkGrad)"/>
+  <circle cx="78" cy="40" r="1.8" fill="#FFE3B8"/>
+</svg>

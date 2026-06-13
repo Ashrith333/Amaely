@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amaely | We look after your parents, like our own</title>
+<meta name="description" content="A dedicated home nurse and a personal doctor who care for your parents every day. Amaely watches over their health, catches problems early, and keeps them out of hospital, so you never face a crisis alone." />
+<meta name="theme-color" content="#160A1B" />
+<link rel="icon" href="logo-mark.svg" type="image/svg+xml" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Amaely | We look after your parents, like our own" />
+<meta property="og:description" content="Modern home health care for parents in smaller-town India. A dedicated nurse and a personal doctor, every day." />
+<meta property="og:image" content="ig-post.png" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<script src="three.min.js"></script>
+
+<style>
+  :root{
+    --ember:#160A1B; --ember2:#23122B; --ink:#2A1F2E; --muted:#6E5E69;
+    --cream:#FFF7F0; --cream2:#FDEFE6; --card:#FFFFFF; --line:#EFE2DA;
+    --hearth:#FF7A59; --glow:#FFB36B; --blush:#FF6F91; --peach:#FFD3A5;
+    --warm:linear-gradient(135deg,#FF6F91 0%,#FF7A59 48%,#FFB36B 100%);
+    --shadow:0 24px 60px -28px rgba(120,40,70,.45);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
+    line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif; font-weight:500; line-height:1.06; margin:0;}
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .section{padding:clamp(64px,9vw,128px) 0;}
+  .eyebrow{
+    font-size:.78rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--hearth); margin-bottom:18px;
+  }
+  .lede{font-size:clamp(1.05rem,2vw,1.28rem); color:var(--muted); max-width:60ch;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:.5rem; cursor:pointer; border:0;
+    font-family:inherit; font-weight:600; font-size:1rem; padding:15px 28px;
+    border-radius:999px; transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn-primary{background:var(--warm); color:#3A0E1E; box-shadow:0 16px 34px -14px rgba(255,110,120,.7);}
+  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 22px 44px -14px rgba(255,110,120,.85);}
+  .btn-ghost{background:transparent; color:var(--cream); border:1.5px solid rgba(255,247,240,.45);}
+  .btn-ghost:hover{border-color:var(--cream); transform:translateY(-3px);}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px clamp(20px,4vw,44px); transition:background .35s ease, box-shadow .35s ease, padding .35s ease;
+    color:var(--cream);
+  }
+  .nav.scrolled{background:rgba(255,247,240,.86); backdrop-filter:blur(14px); color:var(--ink); box-shadow:0 10px 30px -22px rgba(80,30,50,.5); padding-top:12px; padding-bottom:12px;}
+  .brand{display:inline-flex; align-items:center;}
+  .brand-svg{height:34px; width:auto; display:block;}
+  .nav-links{display:flex; align-items:center; gap:30px; font-weight:500; font-size:.96rem;}
+  .nav-links a{opacity:.92; transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav .btn{padding:11px 22px; font-size:.95rem;}
+  .nav.scrolled .btn-mini{background:var(--warm); color:#3A0E1E;}
+  .btn-mini{background:rgba(255,247,240,.16); color:var(--cream); border:1px solid rgba(255,247,240,.4);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; min-height:100svh; display:flex; align-items:center;
+    background:radial-gradient(120% 90% at 50% 28%, #2A1230 0%, #1A0C20 55%, #120817 100%);
+    overflow:hidden; color:var(--cream);
+  }
+  #bg{position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;}
+  .hero::after{ /* readability vignette */
+    content:""; position:absolute; inset:0; pointer-events:none; z-index:1;
+    background:radial-gradient(75% 60% at 50% 60%, rgba(18,8,23,0) 30%, rgba(18,8,23,.55) 100%);
+  }
+  .hero-inner{position:relative; z-index:2; padding-top:120px; padding-bottom:80px; max-width:880px;}
+  .hero h1{font-size:clamp(2.5rem,6.4vw,4.9rem); letter-spacing:-.015em;}
+  .hero h1 .soft{font-style:italic; background:var(--warm); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  .hero .lede{color:rgba(255,247,240,.82); margin-top:24px; max-width:54ch; font-size:clamp(1.06rem,1.8vw,1.32rem);}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:38px;}
+  .hero-note{margin-top:26px; font-size:.92rem; color:rgba(255,247,240,.62); display:flex; align-items:center; gap:9px;}
+  .pulse-dot{width:9px; height:9px; border-radius:50%; background:#7CE0B0; box-shadow:0 0 0 0 rgba(124,224,176,.7); animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(124,224,176,.6);}70%{box-shadow:0 0 0 12px rgba(124,224,176,0);}100%{box-shadow:0 0 0 0 rgba(124,224,176,0);}}
+
+  /* ---------- generic blocks ---------- */
+  .head-block{max-width:64ch;}
+  .head-block h2{font-size:clamp(1.95rem,4.2vw,3.1rem);}
+  .head-block p{margin-top:18px;}
+
+  /* aurora warm blobs */
+  .aurora{position:absolute; border-radius:50%; filter:blur(70px); opacity:.5; pointer-events:none; z-index:0;}
+
+  /* empathy */
+  .empathy{position:relative; background:var(--cream); overflow:hidden;}
+  .empathy .a1{width:420px; height:420px; right:-120px; top:-80px; background:radial-gradient(circle,#FFD9C2,transparent 70%);}
+  .empathy .a2{width:380px; height:380px; left:-140px; bottom:-120px; background:radial-gradient(circle,#FFC8D8,transparent 70%);}
+  .empathy .wrap{position:relative; z-index:1;}
+
+  /* cards */
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:46px;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:24px; padding:30px 28px;
+    box-shadow:var(--shadow); transition:transform .2s ease, box-shadow .3s ease; transform-style:preserve-3d; will-change:transform;
+  }
+  .card:hover{box-shadow:0 34px 70px -30px rgba(120,40,70,.5);}
+  .card .icon{
+    width:54px; height:54px; border-radius:16px; display:grid; place-items:center;
+    background:var(--warm); margin-bottom:20px; box-shadow:0 12px 26px -12px rgba(255,110,120,.7);
+  }
+  .card .icon svg{width:28px; height:28px; stroke:#fff; fill:none; stroke-width:1.9;}
+  .card h3{font-size:1.35rem; margin-bottom:10px;}
+  .card p{color:var(--muted); font-size:1rem;}
+
+  /* watch-over band (dark, futuristic) */
+  .watch{background:radial-gradient(120% 100% at 50% 0%, #2A1230 0%, #190B1F 60%, #140817 100%); color:var(--cream); position:relative; overflow:hidden;}
+  .watch .a1{width:520px; height:520px; left:50%; top:-200px; transform:translateX(-50%); background:radial-gradient(circle,rgba(255,140,90,.5),transparent 70%); opacity:.7;}
+  .watch .head-block p{color:rgba(255,247,240,.74);}
+  .grid7{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; margin-top:48px; position:relative; z-index:1;}
+  .tile{
+    background:rgba(255,247,240,.045); border:1px solid rgba(255,247,240,.12); border-radius:20px; padding:24px;
+    backdrop-filter:blur(6px); transition:transform .2s ease, background .3s ease, border-color .3s ease;
+  }
+  .tile:hover{background:rgba(255,247,240,.08); border-color:rgba(255,179,107,.5); transform:translateY(-4px);}
+  .tile .dot{width:34px; height:34px; border-radius:11px; background:var(--warm); display:grid; place-items:center; margin-bottom:16px; font-weight:700; color:#3A0E1E; font-size:.95rem; font-family:"Plus Jakarta Sans";}
+  .tile h3{font-size:1.18rem; margin-bottom:8px;}
+  .tile p{color:rgba(255,247,240,.7); font-size:.97rem;}
+
+  /* value */
+  .value{background:var(--cream2);}
+  .value-grid{display:grid; grid-template-columns:1fr 1.1fr; gap:54px; align-items:center;}
+  .check-list{list-style:none; padding:0; margin:34px 0 0; display:grid; gap:18px;}
+  .check-list li{display:flex; gap:14px; align-items:flex-start; font-size:1.06rem;}
+  .check{flex:0 0 auto; width:28px; height:28px; border-radius:50%; background:var(--warm); display:grid; place-items:center; margin-top:2px;}
+  .check svg{width:15px; height:15px; stroke:#fff; stroke-width:2.6; fill:none;}
+  .figure{position:relative; border-radius:28px; overflow:hidden; min-height:360px; background:var(--warm); box-shadow:var(--shadow); display:grid; place-items:center; padding:40px; text-align:center;}
+  .figure .big{font-family:"Fraunces"; font-size:clamp(2.6rem,5vw,4rem); color:#fff; line-height:1; font-weight:600;}
+  .figure .cap{color:rgba(255,255,255,.92); margin-top:14px; font-size:1.05rem; max-width:26ch;}
+  .figure .sparkle{position:absolute; top:26px; right:30px; width:34px; height:34px; opacity:.9;}
+
+  /* nri band */
+  .band{background:var(--ink); color:var(--cream); text-align:center;}
+  .band h2{font-size:clamp(1.9rem,4vw,2.9rem); max-width:20ch; margin:0 auto;}
+  .band p{color:rgba(255,247,240,.76); max-width:54ch; margin:20px auto 0;}
+
+  /* pricing / cta */
+  .cta{position:relative; overflow:hidden; background:var(--warm); color:#3A0E1E; text-align:center;}
+  .cta .ring{position:absolute; border:1px solid rgba(255,255,255,.3); border-radius:50%;}
+  .cta h2{font-size:clamp(2.1rem,4.6vw,3.4rem); max-width:18ch; margin:0 auto; color:#3A0E1E;}
+  .cta p{max-width:50ch; margin:18px auto 0; color:#5a1e2c; font-size:1.12rem;}
+  .cta .price{font-family:"Fraunces"; font-weight:600;}
+  .cta-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:34px; position:relative; z-index:1;}
+  .btn-dark{background:#2A1F2E; color:var(--cream);}
+  .btn-dark:hover{transform:translateY(-3px); box-shadow:0 18px 36px -16px rgba(40,20,30,.6);}
+  .btn-light{background:#fff; color:#3A0E1E;}
+  .btn-light:hover{transform:translateY(-3px);}
+
+  /* contact + footer */
+  .footer{background:var(--ember); color:var(--cream); padding:72px 0 40px;}
+  .foot-top{display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; align-items:flex-start;}
+  .footer .brand-svg{height:38px;}
+  .foot-tag{color:rgba(255,247,240,.66); max-width:32ch; margin-top:18px; font-size:1rem;}
+  .foot-contact{display:grid; gap:10px; font-size:1rem;}
+  .foot-contact a{color:var(--peach);}
+  .foot-label{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,247,240,.5); margin-bottom:8px;}
+  .foot-bottom{border-top:1px solid rgba(255,247,240,.12); margin-top:48px; padding-top:24px; display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; color:rgba(255,247,240,.5); font-size:.9rem;}
+
+  /* reveal motion */
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* responsive */
+  @media (max-width:860px){
+    .value-grid{grid-template-columns:1fr; gap:32px;}
+    .figure{min-height:280px;}
+  }
+  @media (max-width:720px){
+    .nav-links{display:none;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1 !important; transform:none !important; transition:none;}
+    .pulse-dot{animation:none;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- shared gradient defs (referenced by inline logos) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="heartGrad" x1="18" y1="22" x2="102" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF6F91"/><stop offset="0.5" stop-color="#FF7A59"/><stop offset="1" stop-color="#FFC07A"/>
+    </linearGradient>
+    <linearGradient id="sparkGrad" x1="80" y1="12" x2="104" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF1D6"/><stop offset="1" stop-color="#FFC98B"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<nav class="nav">
+  <a class="brand" href="#top" aria-label="Amaely home">
+    <svg class="brand-svg" viewBox="0 0 470 130" xmlns="http://www.w3.org/2000/svg" aria-label="Amaely">
+      <g transform="translate(8,11) scale(0.9)">
+        <path d="M60,100 C60,100 18,72 18,46 C18,33 28,25 38,25 C46,25 53,30 60,40 C67,30 74,25 82,25 C92,25 102,33 102,46 C102,72 60,100 60,100 Z" fill="url(#heartGrad)"/>
+        <ellipse cx="41" cy="43" rx="11" ry="8" fill="#FFFFFF" opacity="0.28" transform="rotate(-30 41 43)"/>
+        <path d="M92,12 C92,22.2 93.8,24 104,24 C93.8,24 92,25.8 92,36 C92,25.8 90.2,24 80,24 C90.2,24 92,22.2 92,12 Z" fill="url(#sparkGrad)"/>
+        <circle cx="78" cy="40" r="1.8" fill="#FFE3B8"/>
+      </g>
+      <text x="132" y="84" font-family="Plus Jakarta Sans, sans-serif" font-weight="600" font-size="62" letter-spacing="-1.5" fill="currentColor">Amaely</text>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#watch">What we watch over</a>
+    <a href="#why">Why Amaely</a>
+  </div>
+  <a class="btn btn-mini" href="#contact">Talk to us</a>
+</nav>
+
+<header class="hero">
+  <canvas id="bg"></canvas>
+  <div class="wrap hero-inner">
+    <p class="eyebrow" style="color:var(--peach)">Home health care for parents</p>
+    <h1>We look after your parents,<br><span class="soft">like our own.</span></h1>
+    <p class="lede">A dedicated home nurse and a personal doctor care for them every day. We watch over their health, catch problems early, and keep them out of hospital, so they stay well and independent, and you stay at peace.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">Talk to us</a>
+      <a class="btn btn-ghost" href="#how">See how it works</a>
+    </div>
+    <div class="hero-note"><span class="pulse-dot"></span> Now welcoming our first families in Kurnool.</div>
+  </div>
+</header>
+
+<!-- EMPATHY -->
+<section class="section empathy">
+  <span class="aurora a1"></span>
+  <span class="aurora a2"></span>
+  <div class="wrap head-block reveal">
+    <p class="eyebrow">The quiet worry</p>
+    <h2>You can't be there every day. We can.</h2>
+    <p class="lede">When your parents live in another town and you are building a life somewhere else, every missed call sets off a quiet worry. Are they taking their medicines? Is that cough something serious? Who is watching, day to day? Amaely exists to answer that worry, gently and completely.</p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <p class="eyebrow">How Amaely cares</p>
+      <h2>One nurse. One doctor. Always watching.</h2>
+      <p class="lede">Real people who know your parents by name, supported by quiet technology that never looks away.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal" data-tilt>
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9-9a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 21 12c-2 4.65-9 9-9 9z"/></svg></div>
+        <h3>A nurse who knows them</h3>
+        <p>A trained nurse from their own town visits regularly to check their health, run simple tests, and become a familiar, caring face they look forward to seeing.</p>
+      </article>
+      <article class="card reveal" data-tilt>
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4z"/><path d="M8 20h8M12 16v4M8 9h3M8 12h6"/></svg></div>
+        <h3>A doctor who sees the whole picture</h3>
+        <p>A personal doctor reviews everything together, notices what is changing across the whole body, adjusts their care, and is there the moment something is wrong.</p>
+      </article>
+      <article class="card reveal" data-tilt>
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Eyes on them, every day</h3>
+        <p>Gentle, continuous monitoring means a small change is caught early, long before it can grow into a 2am emergency and a hospital bill.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WATCH OVER -->
+<section class="section watch" id="watch">
+  <span class="aurora a1"></span>
+  <div class="wrap">
+    <div class="head-block reveal">
+      <p class="eyebrow" style="color:var(--peach)">The whole person</p>
+      <h2>We look after the whole person, not just one number.</h2>
+      <p>A blood pressure app tracks a single reading. Amaely watches over everything that keeps your parents well, and steps in the moment any of it drifts.</p>
+    </div>
+    <div class="grid7">
+      <div class="tile reveal"><div class="dot">01</div><h3>Day-to-day health</h3><p>Blood pressure, sugar, weight and more, tracked over time so nothing creeps up unnoticed.</p></div>
+      <div class="tile reveal"><div class="dot">02</div><h3>The body's vital signs</h3><p>Heart, kidneys and other organs, checked with simple, regular tests at home.</p></div>
+      <div class="tile reveal"><div class="dot">03</div><h3>Strength and movement</h3><p>Staying steady on their feet, avoiding falls, and keeping their independence at home.</p></div>
+      <div class="tile reveal"><div class="dot">04</div><h3>Memory and mood</h3><p>Catching loneliness, low mood or confusion early, when it is easiest to help.</p></div>
+      <div class="tile reveal"><div class="dot">05</div><h3>Safe medicines</h3><p>Making sure every medicine is helping, taken correctly, and never quietly causing harm.</p></div>
+      <div class="tile reveal"><div class="dot">06</div><h3>Food and daily life</h3><p>Eating well, sleeping well, and small habits that add up to a longer, fuller life.</p></div>
+      <div class="tile reveal"><div class="dot">07</div><h3>Never alone</h3><p>The simple comfort of knowing that someone, every day, is watching over them.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="section value" id="why">
+  <div class="wrap value-grid">
+    <div class="reveal">
+      <p class="eyebrow">Why families choose Amaely</p>
+      <h2 style="font-size:clamp(1.95rem,4.2vw,3.1rem)">Peace of mind, for the whole family.</h2>
+      <ul class="check-list">
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>One person owns your parents' health, so nothing falls through the cracks.</span></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>No more midnight scrambles or frantic searches for the right doctor.</span></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Your parents stay in their own home, living life on their own terms.</span></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>You get regular, clear updates, wherever in the world you are.</span></li>
+      </ul>
+    </div>
+    <div class="figure reveal" data-tilt>
+      <svg class="sparkle" viewBox="0 0 120 120" aria-hidden="true"><path d="M92,12 C92,22.2 93.8,24 104,24 C93.8,24 92,25.8 92,36 C92,25.8 90.2,24 80,24 C90.2,24 92,22.2 92,12 Z M60,40 C60,50 62,52 74,55 C62,58 60,60 60,72 C60,60 58,58 46,55 C58,52 60,50 60,40 Z" fill="#fff" opacity="0.9"/></svg>
+      <div>
+        <div class="big">One avoided<br>hospital stay</div>
+        <p class="cap">pays for years of care, and spares your family the bill, the fear, and the guilt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NRI BAND -->
+<section class="section band">
+  <div class="wrap reveal">
+    <h2>Halfway across the world, but never out of the loop.</h2>
+    <p>For sons and daughters living in another city or country: one number to call, one team that knows your parents, and updates that reach you on your time, in plain language, with no jargon.</p>
+  </div>
+</section>
+
+<!-- CTA / PRICING -->
+<section class="section cta" id="contact">
+  <span class="ring" style="width:520px;height:520px;left:-160px;top:-180px;"></span>
+  <span class="ring" style="width:360px;height:360px;right:-120px;bottom:-160px;"></span>
+  <div class="wrap reveal">
+    <p class="eyebrow" style="color:#5a1e2c">Simple membership, no insurance needed</p>
+    <h2>Start looking after your parents today.</h2>
+    <p>Membership starts at about <span class="price">INR 1,800 a month</span> per parent, far less than a single day in hospital. No claims, no paperwork, no waiting. Just care.</p>
+    <div class="cta-actions">
+      <!-- Replace the email and number below with your real contact details -->
+      <a class="btn btn-dark" href="mailto:hello@amaley.com?subject=I%20want%20to%20care%20for%20my%20parents%20with%20Amaely">Talk to us</a>
+      <a class="btn btn-light" href="https://wa.me/919676936825" target="_blank" rel="noopener">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <svg class="brand-svg" viewBox="0 0 470 130" xmlns="http://www.w3.org/2000/svg" aria-label="Amaely">
+          <g transform="translate(8,11) scale(0.9)">
+            <path d="M60,100 C60,100 18,72 18,46 C18,33 28,25 38,25 C46,25 53,30 60,40 C67,30 74,25 82,25 C92,25 102,33 102,46 C102,72 60,100 60,100 Z" fill="url(#heartGrad)"/>
+            <ellipse cx="41" cy="43" rx="11" ry="8" fill="#FFFFFF" opacity="0.28" transform="rotate(-30 41 43)"/>
+            <path d="M92,12 C92,22.2 93.8,24 104,24 C93.8,24 92,25.8 92,36 C92,25.8 90.2,24 80,24 C90.2,24 92,22.2 92,12 Z" fill="url(#sparkGrad)"/>
+            <circle cx="78" cy="40" r="1.8" fill="#FFE3B8"/>
+          </g>
+          <text x="132" y="84" font-family="Plus Jakarta Sans, sans-serif" font-weight="600" font-size="62" letter-spacing="-1.5" fill="#FFF7F0">Amaely</text>
+        </svg>
+        <p class="foot-tag">Modern home health care for parents in Tier 2 and smaller-town India.</p>
+      </div>
+      <div class="foot-contact">
+        <span class="foot-label">Get in touch</span>
+        <!-- Replace with your real details -->
+        <a href="mailto:hello@amaley.com">hello@amaley.com</a>
+        <a href="https://wa.me/910000000000" target="_blank" rel="noopener">WhatsApp us</a>
+        <span style="color:rgba(255,247,240,.6)">amaley.com</span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Amaely. Made with care in India.</span>
+      <span>Amaely supports your family. It does not replace emergency medical services.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------------- 3D hero: constellation of care ---------------- */
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!window.THREE){ return; }
+  var canvas = document.getElementById('bg');
+  var renderer = new THREE.WebGLRenderer({canvas:canvas, alpha:true, antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 400);
+  camera.position.set(0,0,62);
+  var group = new THREE.Group(); scene.add(group);
+
+  function disc(){
+    var c=document.createElement('canvas'); c.width=c.height=64;
+    var x=c.getContext('2d');
+    var g=x.createRadialGradient(32,32,0,32,32,32);
+    g.addColorStop(0,'rgba(255,255,255,1)');
+    g.addColorStop(0.25,'rgba(255,255,255,0.85)');
+    g.addColorStop(1,'rgba(255,255,255,0)');
+    x.fillStyle=g; x.beginPath(); x.arc(32,32,32,0,7); x.fill();
+    return new THREE.CanvasTexture(c);
+  }
+  var sprite = disc();
+  var small = window.innerWidth < 680;
+
+  // ---- field ----
+  var palette=[[1,.49,.35],[1,.435,.569],[1,.70,.42],[1,.827,.647],[.77,.42,.53]];
+  (function(){
+    var N = small ? 700 : 1500;
+    var g=new THREE.BufferGeometry();
+    var pos=new Float32Array(N*3), col=new Float32Array(N*3);
+    for(var i=0;i<N;i++){
+      var r = 12 + Math.pow(Math.random(),0.7)*38;
+      var th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1);
+      pos[i*3]   = r*Math.sin(ph)*Math.cos(th);
+      pos[i*3+1] = r*Math.sin(ph)*Math.sin(th)*0.82;
+      pos[i*3+2] = r*Math.cos(ph);
+      var k=palette[(Math.random()*palette.length)|0];
+      col[i*3]=k[0]; col[i*3+1]=k[1]; col[i*3+2]=k[2];
+    }
+    g.setAttribute('position', new THREE.BufferAttribute(pos,3));
+    g.setAttribute('color', new THREE.BufferAttribute(col,3));
+    var m=new THREE.PointsMaterial({size:0.9, map:sprite, vertexColors:true, transparent:true, opacity:0.9, depthWrite:false, blending:THREE.AdditiveBlending, sizeAttenuation:true});
+    group.add(new THREE.Points(g,m));
+  })();
+
+  // ---- glowing core ----
+  (function(){
+    var N = small ? 200 : 400;
+    var g=new THREE.BufferGeometry();
+    var pos=new Float32Array(N*3), col=new Float32Array(N*3);
+    var warm=[[1,.79,.55],[1,.85,.70],[1,.94,.86]];
+    for(var i=0;i<N;i++){
+      var r=Math.pow(Math.random(),1.5)*6.5;
+      var th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1);
+      pos[i*3]=r*Math.sin(ph)*Math.cos(th);
+      pos[i*3+1]=r*Math.sin(ph)*Math.sin(th);
+      pos[i*3+2]=r*Math.cos(ph);
+      var k=warm[(Math.random()*3)|0];
+      col[i*3]=k[0]; col[i*3+1]=k[1]; col[i*3+2]=k[2];
+    }
+    g.setAttribute('position', new THREE.BufferAttribute(pos,3));
+    g.setAttribute('color', new THREE.BufferAttribute(col,3));
+    var m=new THREE.PointsMaterial({size:1.7, map:sprite, vertexColors:true, transparent:true, opacity:0.95, depthWrite:false, blending:THREE.AdditiveBlending});
+    group.add(new THREE.Points(g,m));
+  })();
+
+  // ---- orbit nodes + connecting lines (the care network) ----
+  (function(){
+    var M = small ? 9 : 15;
+    var nodes=[];
+    for(var i=0;i<M;i++){
+      var r=15+Math.random()*27;
+      var th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1);
+      nodes.push([r*Math.sin(ph)*Math.cos(th), r*Math.sin(ph)*Math.sin(th)*0.85, r*Math.cos(ph)]);
+    }
+    var lp=[];
+    for(var j=0;j<nodes.length;j++){ lp.push(0,0,0, nodes[j][0],nodes[j][1],nodes[j][2]); }
+    var lg=new THREE.BufferGeometry();
+    lg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lp),3));
+    var lm=new THREE.LineBasicMaterial({color:0xFF9E7D, transparent:true, opacity:0.15, blending:THREE.AdditiveBlending, depthWrite:false});
+    group.add(new THREE.LineSegments(lg,lm));
+    var np=new Float32Array(nodes.length*3);
+    for(var n=0;n<nodes.length;n++){ np[n*3]=nodes[n][0]; np[n*3+1]=nodes[n][1]; np[n*3+2]=nodes[n][2]; }
+    var ng=new THREE.BufferGeometry();
+    ng.setAttribute('position', new THREE.BufferAttribute(np,3));
+    var nm=new THREE.PointsMaterial({size:2.6, map:sprite, color:0xFFD8B0, transparent:true, opacity:0.95, depthWrite:false, blending:THREE.AdditiveBlending});
+    group.add(new THREE.Points(ng,nm));
+  })();
+
+  function resize(){
+    var w=canvas.clientWidth||window.innerWidth, h=canvas.clientHeight||window.innerHeight;
+    renderer.setSize(w,h,false);
+    camera.aspect=w/h; camera.updateProjectionMatrix();
+  }
+  resize(); window.addEventListener('resize', resize);
+
+  var mx=0,my=0,tx=0,ty=0;
+  window.addEventListener('pointermove', function(e){
+    mx=(e.clientX/window.innerWidth-0.5);
+    my=(e.clientY/window.innerHeight-0.5);
+  });
+
+  var t=0;
+  function frame(){
+    t+=0.0016;
+    group.rotation.y += 0.0011;
+    group.rotation.x = Math.sin(t*0.6)*0.06;
+    group.position.y = Math.sin(t*0.9)*0.5;
+    tx += (mx-tx)*0.04; ty += (my-ty)*0.04;
+    camera.position.x = tx*10; camera.position.y = -ty*8;
+    camera.lookAt(0,0,0);
+    renderer.render(scene,camera);
+    requestAnimationFrame(frame);
+  }
+  if(reduced){ group.rotation.y=0.4; camera.lookAt(0,0,0); renderer.render(scene,camera); }
+  else { frame(); }
+})();
+
+/* ---------------- nav scrolled state ---------------- */
+(function(){
+  var nav=document.querySelector('.nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY>24); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+})();
+
+/* ---------------- scroll reveal ---------------- */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:0.14});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+/* ---------------- 3D tilt on cards ---------------- */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(window.matchMedia('(pointer: coarse)').matches) return; // skip on touch
+  document.querySelectorAll('[data-tilt]').forEach(function(card){
+    card.addEventListener('pointermove', function(e){
+      var r=card.getBoundingClientRect();
+      var px=(e.clientX-r.left)/r.width-0.5;
+      var py=(e.clientY-r.top)/r.height-0.5;
+      card.style.transform='perspective(820px) rotateX('+(-py*6)+'deg) rotateY('+(px*6)+'deg) translateY(-4px)';
+    });
+    card.addEventListener('pointerleave', function(){ card.style.transform=''; });
+  });
+})();
+</script>
+</body>
+</html>
