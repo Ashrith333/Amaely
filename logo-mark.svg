@@ -1,0 +1,10 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Amaely"><defs>
+  <linearGradient id="aGrad" x1="30" y1="28" x2="90" y2="96" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#FF6F91"/><stop offset="0.5" stop-color="#FF7A59"/><stop offset="1" stop-color="#FFC07A"/>
+  </linearGradient>
+  <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3.4"/></filter>
+</defs><g filter="url(#soft)" opacity="0.9"><path d="M30,96 L60,28 L90,96" fill="none" stroke="url(#aGrad)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <path d="M30,96 L60,28 L90,96" fill="none" stroke="url(#aGrad)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M40,73 L48,73 L52,63 L57,83 L62,55 L66,73 L80,73" fill="none" stroke="#FFE9C7" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60,16 C60,25 61.6,26.4 71,28 C61.6,29.6 60,31 60,40 C60,31 58.4,29.6 49,28 C58.4,26.4 60,25 60,16 Z" fill="#FFF3E0"/>
+    <circle cx="60" cy="28" r="3.3" fill="#FFFFFF"/></svg>
