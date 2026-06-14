@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Amaely | Caring for the people you love, like family</title>
-<meta name="description" content="A personal nurse and doctor who look after your whole health at home, catch problems early, and keep you well. For everyone you love, in towns and cities across India." />
+<title>Amaely | Care that feels like family</title>
+<meta name="description" content="Amaely is there every day, with a personal nurse and doctor who look after your whole health at home. Care that feels like family, for everyone you love." />
 <meta name="theme-color" content="#002855" />
 <link rel="icon" href="logo-mark.svg" type="image/svg+xml" />
 <meta property="og:title" content="Amaely | A living universe of care" />
-<meta property="og:description" content="Whole-person care at home, for everyone you love across India." />
+<meta property="og:description" content="Care that feels like family. For everyone you love." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,159 +24,109 @@
 </script>
 <style>
   :root{
-    --navy:#002855; --navy-d:#001A3A; --navy-2:#0B3E73;
-    --slate:#78A5B9; --slate-d:#4E7E93; --slate-l:#A9C6D4;
+    --navy:#002855; --navy-d:#001A3A; --slate:#78A5B9; --slate-d:#3F6E84; --slate-l:#A9C6D4;
     --cream:#F0EBE6; --cream-2:#F7F4F0; --white:#FFFFFF; --orange:#F06437;
-    --ink:#002855; --ink-soft:rgba(0,40,85,.74); --ink-faint:rgba(0,40,85,.5);
-    --on-d:#EAF1F6; --on-d-soft:rgba(234,241,246,.78); --on-d-faint:rgba(234,241,246,.5);
-    --line:rgba(0,40,85,.12); --line-d:rgba(234,241,246,.16);
+    --ink:#002855; --ink-soft:rgba(0,40,85,.78); --ink-faint:rgba(0,40,85,.55);
+    --on-d:#EAF1F6; --on-d-soft:rgba(234,241,246,.8); --on-d-faint:rgba(234,241,246,.52);
+    --line:rgba(0,40,85,.13);
     --font-display:"Utile Display","Hanken Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
     --font-body:"Neue Haas Unica","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --maxw:1180px;
+    --maxw:1080px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{margin:0; background:linear-gradient(180deg,var(--navy),var(--navy-d)); color:var(--ink);
-    font-family:var(--font-body); line-height:1.62; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
-  h1,h2,h3,h4{font-family:var(--font-display); font-weight:700; line-height:1.06; margin:0; letter-spacing:-.02em;}
+  body{margin:0; background:var(--cream-2); color:var(--ink); font-family:var(--font-body);
+    font-size:18px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3{font-family:var(--font-display); font-weight:700; line-height:1.08; margin:0; letter-spacing:-.02em;}
   p{margin:0;} a{color:inherit; text-decoration:none;}
   :focus-visible{outline:2.5px solid var(--orange); outline-offset:3px; border-radius:4px;}
 
-  #scene{position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;}
-  /* dark scrim that fades in over the 3D while the care section is on screen, so the text always reads */
-  #careScrim{position:fixed; inset:0; z-index:1; pointer-events:none; opacity:0; transition:opacity .6s ease;
-    background:radial-gradient(120% 85% at 50% 50%, rgba(0,18,40,.0) 0%, rgba(0,18,40,.55) 42%, rgba(0,18,40,.9) 78%),
-              radial-gradient(60% 48% at 50% 50%, rgba(0,18,40,.78), rgba(0,18,40,0) 70%);}
-  #careScrim.on{opacity:1;}
-
-  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 clamp(22px,5vw,48px);}
-  .eyebrow{font-family:var(--font-display); font-weight:600; font-size:.76rem; letter-spacing:.26em; text-transform:uppercase; color:var(--slate-d);}
-  .on-d .eyebrow,.feature .eyebrow{color:var(--slate-l);}
-
-  section{position:relative; z-index:2;}
-  .sec{padding:clamp(54px,8vh,92px) 0;}
+  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 clamp(22px,5vw,44px);}
+  section{position:relative;}
+  .sec{padding:clamp(60px,9vh,104px) 0;}
   .bg-cream{background:var(--cream);} .bg-white{background:var(--white);} .bg-cream2{background:var(--cream-2);}
-  .bg-navy{background:linear-gradient(180deg,#00264F,#001B3B); color:var(--on-d);}
-  .feature{background:transparent; color:var(--on-d);}
-  .on-d{color:var(--on-d);}
+  .eyebrow{font-family:var(--font-display); font-weight:600; font-size:.82rem; letter-spacing:.22em; text-transform:uppercase; color:var(--slate-d);}
 
-  .btn{display:inline-flex; align-items:center; gap:.5rem; cursor:pointer; border:0; font-family:var(--font-display);
-    font-weight:600; font-size:1rem; padding:15px 28px; border-radius:14px; transition:transform .2s ease, box-shadow .2s ease, background .2s, border-color .2s;}
+  .btn{display:inline-flex; align-items:center; gap:.55rem; cursor:pointer; border:0; font-family:var(--font-display);
+    font-weight:600; font-size:1.05rem; padding:16px 30px; border-radius:14px; transition:transform .2s, box-shadow .2s, background .2s, border-color .2s;}
   .btn-primary{background:var(--orange); color:#fff; box-shadow:0 14px 30px -14px rgba(240,100,55,.7);}
   .btn-primary:hover{transform:translateY(-2px); box-shadow:0 22px 40px -14px rgba(240,100,55,.8);}
-  .btn-navy{background:var(--navy); color:#fff;} .btn-navy:hover{transform:translateY(-2px); background:#013268;}
-  .btn-ghost{background:transparent; color:var(--ink); border:1.6px solid var(--line);}
+  .btn-ghost{background:transparent; color:var(--ink); border:1.7px solid var(--line);}
   .btn-ghost:hover{border-color:var(--navy); transform:translateY(-2px);}
-  .on-d .btn-ghost,.feature .btn-ghost{color:var(--on-d); border-color:var(--line-d);}
-  .on-d .btn-ghost:hover,.feature .btn-ghost:hover{border-color:var(--slate-l);}
 
+  /* nav */
   .nav{position:fixed; top:0; left:0; right:0; z-index:40; display:flex; align-items:center; justify-content:space-between;
-    padding:15px clamp(22px,5vw,48px); transition:background .35s ease, box-shadow .35s ease, padding .35s ease;}
-  .nav.scrolled{background:rgba(247,244,240,.95); backdrop-filter:blur(14px); box-shadow:0 1px 0 var(--line); padding-top:11px; padding-bottom:11px;}
-  .nav .brand{display:inline-flex; align-items:center; gap:11px; font-family:var(--font-display); font-weight:700; font-size:1.32rem; letter-spacing:-.02em; color:var(--on-d);}
-  .nav.scrolled .brand{color:var(--ink);}
-  .nav .brand svg{height:30px;}
-  .nav-links{display:flex; gap:30px; align-items:center;}
-  .nav-links a{font-size:.96rem; color:var(--on-d-soft); font-weight:500; transition:color .2s;}
-  .nav.scrolled .nav-links a{color:var(--ink-soft);}
-  .nav-links a:hover{color:var(--orange);}
-  .nav .btn{padding:10px 20px; font-size:.92rem;}
-  @media (max-width:840px){ .nav-links{display:none;} }
+    padding:16px clamp(22px,5vw,44px); transition:background .35s, box-shadow .35s, padding .35s;}
+  .nav.scrolled{background:rgba(247,244,240,.95); backdrop-filter:blur(12px); box-shadow:0 1px 0 var(--line); padding-top:11px; padding-bottom:11px;}
+  .nav .brand{display:inline-flex; align-items:center; gap:11px; font-family:var(--font-display); font-weight:700; font-size:1.4rem; letter-spacing:-.02em; color:var(--ink);}
+  .nav .brand svg{height:32px;}
+  .nav .btn{padding:11px 22px; font-size:1rem;}
 
-  .hero{min-height:100svh; display:flex; align-items:center; padding-top:96px; padding-bottom:64px;}
-  .hero .eyebrow{margin-bottom:22px;}
-  .hero h1{font-size:clamp(2.7rem,6vw,5rem); max-width:15ch; font-weight:800;}
-  .hero p{margin-top:24px; font-size:clamp(1.1rem,1.7vw,1.38rem); color:var(--on-d-soft); max-width:50ch;}
-  .hero .cta-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:38px;}
-  .scroll-cue{position:absolute; left:clamp(22px,5vw,48px); bottom:30px; display:flex; align-items:center; gap:10px;
-    font-family:var(--font-display); font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; color:var(--on-d-faint); transition:opacity .5s;}
-  .scroll-cue .chev{width:13px;height:13px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);animation:bob 1.8s ease-in-out infinite;}
-  @keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.5;}50%{transform:rotate(45deg) translate(3px,3px);opacity:1;}}
+  /* hero */
+  .hero{min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:110px 0 60px;}
+  #logo3d{width:min(440px,82vw); height:min(420px,46vh); display:block;}
+  .hero .brandline{margin-top:6px; font-family:var(--font-display); font-weight:600; font-size:clamp(.92rem,1.6vw,1.05rem); letter-spacing:.18em; text-transform:uppercase; color:var(--slate-d);}
+  .hero h1{margin-top:20px; font-size:clamp(2.1rem,5vw,3.6rem); font-weight:800; max-width:16ch;}
+  .scroll-cue{position:absolute; bottom:26px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px;
+    font-family:var(--font-display); font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-faint); transition:opacity .5s;}
+  .scroll-cue .chev{width:13px;height:13px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg);animation:bob 1.8s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:rotate(45deg) translateY(0);opacity:.5;}50%{transform:rotate(45deg) translateY(4px);opacity:1;}}
 
-  .statement{font-family:var(--font-display); font-weight:700; font-size:clamp(1.9rem,4vw,3.1rem); line-height:1.12; max-width:20ch; letter-spacing:-.02em;}
+  /* intro statement */
+  @media (max-width:560px){ .hero .brandline{font-size:.74rem; letter-spacing:.1em;} }
+  .statement{font-family:var(--font-display); font-weight:700; font-size:clamp(2rem,4.6vw,3.3rem); line-height:1.14; max-width:20ch; letter-spacing:-.02em;}
   .statement .hl{color:var(--orange);}
-  .lede{font-size:clamp(1.05rem,1.5vw,1.22rem); color:var(--ink-soft); max-width:56ch;}
-  .on-d .lede,.feature .lede{color:var(--on-d-soft);}
-  .sechead{max-width:32ch;}
-  .sechead h2{font-size:clamp(1.9rem,4vw,3rem);}
-  .sechead p{margin-top:16px; font-size:clamp(1.05rem,1.5vw,1.2rem); color:var(--ink-soft);}
-  .on-d .sechead p,.feature .sechead p{color:var(--on-d-soft);}
 
-  /* care feature */
-  .care .sechead{text-align:center; margin:0 auto;}
-  .care-flow{margin-top:14px;}
-  .care-item{min-height:46vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; will-change:opacity,transform;}
-  .care-item .ico{width:78px;height:78px;margin:0 auto 26px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1.5px solid rgba(169,198,212,.42);background:rgba(120,165,185,.12);color:var(--slate-l);box-shadow:0 0 44px -10px rgba(120,165,185,.45);}
-  .care-item .ico svg{width:36px;height:36px;display:block;}
-  .care-item h3{font-size:clamp(1.9rem,4vw,3rem); color:var(--on-d); font-weight:700; letter-spacing:-.02em; text-shadow:0 2px 30px rgba(0,18,40,.6);}
-  .care-item p{margin-top:16px; font-size:clamp(1.08rem,1.7vw,1.32rem); line-height:1.55; color:var(--on-d-soft); max-width:38ch; text-shadow:0 1px 20px rgba(0,18,40,.7);}
-
-  /* people row */
-  .people{display:flex; flex-wrap:wrap; gap:clamp(14px,2.4vw,30px); justify-content:center; margin-top:48px;}
-  .people .av{width:clamp(72px,10vw,104px); height:clamp(72px,10vw,104px); border-radius:50%; overflow:hidden; box-shadow:0 12px 26px -16px rgba(0,40,85,.4);}
-  .people .av svg{width:100%; height:100%; display:block;}
-
-  /* steps */
-  .steps{margin-top:50px;}
-  .step{display:grid; grid-template-columns:auto 1fr; gap:24px; padding:24px 0; border-top:1px solid var(--line); align-items:start;}
-  .step:last-child{border-bottom:1px solid var(--line);}
-  .step .num{font-family:var(--font-display); font-weight:700; font-size:1.05rem; color:#fff; background:var(--navy); width:44px; height:44px; border-radius:13px; display:flex; align-items:center; justify-content:center;}
-  .step h3{font-size:clamp(1.15rem,2vw,1.45rem);}
-  .step p{margin-top:6px; color:var(--ink-soft); max-width:60ch;}
-
-  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:46px;}
-  @media (max-width:760px){ .grid-2{grid-template-columns:1fr;} }
-  .card{background:var(--white); border:1px solid var(--line); border-radius:20px; padding:clamp(26px,3vw,36px);}
-  .bg-white .card,.bg-cream2 .card{background:var(--cream-2);}
-  .card .tagk{font-family:var(--font-display); font-weight:600; font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--slate-d);}
-  .card h3{margin-top:12px; font-size:clamp(1.25rem,2.2vw,1.6rem);}
-  .card p{margin-top:12px; color:var(--ink-soft);}
-
-  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:46px;}
+  /* trust */
+  .sechead h2{font-size:clamp(1.9rem,4vw,2.9rem);}
+  .sechead .eyebrow{margin-bottom:14px; display:block;}
+  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:48px;}
   @media (max-width:900px){ .grid-4{grid-template-columns:1fr 1fr;} }
-  @media (max-width:520px){ .grid-4{grid-template-columns:1fr;} }
-  .trust .ico{width:34px;height:34px;color:var(--slate-d);margin-bottom:14px;}
-  .trust .ico svg{width:100%;height:100%;}
-  .trust h3{font-size:1.16rem;} .trust p{margin-top:8px; color:var(--ink-soft); font-size:.98rem;}
+  @media (max-width:560px){ .grid-4{grid-template-columns:1fr;} }
+  .trust .ico{width:46px;height:46px;display:flex;align-items:center;justify-content:center;border-radius:13px;background:rgba(120,165,185,.16);color:var(--slate-d);margin-bottom:16px;}
+  .trust .ico svg{width:26px;height:26px;}
+  .trust h3{font-size:1.28rem;}
+  .trust p{margin-top:9px; color:var(--ink-soft); font-size:1.05rem;}
 
   /* testimonials */
-  .tnote{margin-top:10px; font-size:.92rem; color:var(--ink-faint); font-style:italic;}
-  .marquee{overflow:hidden; margin-top:34px; -webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent); mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);}
-  .marquee-track{display:flex; flex-wrap:nowrap; align-items:flex-start; gap:20px; width:max-content; animation:scrollx 44s linear infinite;}
+  .tnote{margin-top:12px; font-size:1rem; color:var(--ink-faint); font-style:italic;}
+  .marquee{overflow:hidden; margin-top:36px; -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+  .marquee-track{display:flex; flex-wrap:nowrap; align-items:flex-start; gap:20px; width:max-content; animation:scrollx 46s linear infinite;}
   .marquee:hover .marquee-track{animation-play-state:paused;}
   @keyframes scrollx{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  .quote{box-sizing:border-box; width:320px; flex:0 0 320px; background:var(--white); border:1px solid var(--line); border-radius:20px; padding:26px; display:flex; flex-direction:column; gap:16px;}
-  .quote p{font-size:1rem; color:var(--ink); line-height:1.58;}
+  .quote{box-sizing:border-box; width:330px; flex:0 0 330px; background:var(--white); border:1px solid var(--line); border-radius:20px; padding:28px; display:flex; flex-direction:column; gap:16px;}
+  .quote p{font-size:1.04rem; color:var(--ink); line-height:1.58;}
   .quote .who{display:flex; align-items:center; gap:14px;}
-  .quote .av{width:54px; height:54px; border-radius:50%; overflow:hidden; flex:0 0 auto;}
+  .quote .av{width:56px; height:56px; border-radius:50%; overflow:hidden; flex:0 0 auto;}
   .quote .av svg{width:100%; height:100%; display:block;}
   .quote .qn{min-width:0;}
-  .quote .nm{font-family:var(--font-display); font-weight:700; font-size:1rem; color:var(--ink);}
-  .quote .loc{font-size:.86rem; color:var(--ink-faint);}
+  .quote .nm{font-family:var(--font-display); font-weight:700; font-size:1.06rem; color:var(--ink);}
+  .quote .loc{font-size:.92rem; color:var(--ink-faint);}
 
-  .cta-final{text-align:center;}
-  .cta-final h2{font-size:clamp(2.1rem,4.6vw,3.5rem); max-width:18ch; margin:0 auto; color:var(--on-d);}
-  .cta-final p{margin-top:16px; font-size:clamp(1.1rem,1.7vw,1.32rem); color:var(--on-d-soft);}
-  .cta-final .cta-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:34px;}
-  .cta-final .fineprint{margin-top:18px; font-size:.92rem; color:var(--on-d-faint);}
+  /* contact */
+  .contact{text-align:center;}
+  .contact h2{font-size:clamp(2rem,4.4vw,3.1rem); max-width:18ch; margin:0 auto;}
+  .contact p{margin-top:16px; font-size:clamp(1.1rem,1.7vw,1.3rem); color:var(--ink-soft);}
+  .contact .ways{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:34px;}
+  .contact .detail{margin-top:22px; font-size:1.08rem; color:var(--ink-soft);}
+  .contact .detail a{color:var(--navy); font-weight:600; border-bottom:1.5px solid rgba(0,40,85,.25);}
+  .contact .fineprint{margin-top:24px; font-size:1rem; color:var(--ink-faint);}
 
-  .footer{position:relative; z-index:2; background:var(--navy-d); color:var(--on-d-soft); padding:58px 0 38px;}
-  .foot-grid{display:grid; grid-template-columns:1.5fr 1fr 1.2fr; gap:36px;}
-  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr 1fr;} }
-  @media (max-width:480px){ .foot-grid{grid-template-columns:1fr;} }
-  .footer .brand{display:inline-flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:1.3rem; color:var(--on-d);}
-  .footer .brand svg{height:30px;}
-  .footer .ftag{margin-top:14px; max-width:32ch;}
-  .footer h4{font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--slate-l); font-weight:600;}
-  .footer ul{list-style:none; margin:14px 0 0; padding:0; display:grid; gap:10px;}
-  .footer a:hover{color:var(--white);}
-  .footer .fbottom{margin-top:44px; padding-top:22px; border-top:1px solid var(--line-d); display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; font-size:.86rem; color:var(--on-d-faint);}
+  /* footer */
+  .footer{background:var(--navy-d); color:var(--on-d-soft); padding:54px 0 36px;}
+  .footer .top{display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:center;}
+  .footer .brand{display:inline-flex; align-items:center; gap:11px; font-family:var(--font-display); font-weight:700; font-size:1.4rem; color:var(--on-d);}
+  .footer .brand svg{height:32px;}
+  .footer .links{display:flex; gap:24px; flex-wrap:wrap;}
+  .footer .links a:hover{color:#fff;}
+  .footer .ftag{margin-top:18px; max-width:46ch; color:var(--on-d-soft);}
+  .footer .fbottom{margin-top:30px; padding-top:22px; border-top:1px solid rgba(234,241,246,.16); display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; font-size:.92rem; color:var(--on-d-faint);}
 
-  .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
   .reveal.in{opacity:1; transform:none;}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
-    .reveal,.care-item{opacity:1!important;transform:none!important;}
+    .reveal{opacity:1!important;transform:none!important;}
     .marquee-track{animation:none;} .marquee{overflow-x:auto;}
     .scroll-cue .chev{animation:none;}
     *{transition:none!important;}
@@ -185,99 +135,55 @@
 </head>
 <body id="top">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="p1" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#EAF1F6"/><path d="M14,100 C14,77 32,69 50,69 C68,69 86,77 86,100 Z" fill="#0B3E73"/><path d="M50,69 L44,80 L50,84 L56,80 Z" fill="rgba(255,255,255,.14)"/><rect x="44" y="58" width="12" height="13" rx="5" fill="#D29B6A"/><path d="M27,46 C27,70 31,78 33,84 L67,84 C69,78 73,70 73,46 Z" fill="#2B2119"/><ellipse cx="50" cy="45" rx="19" ry="21" fill="#D29B6A"/><circle cx="31.5" cy="46" r="3.4" fill="#D29B6A"/><circle cx="68.5" cy="46" r="3.4" fill="#D29B6A"/><path d="M30,47 C30,28 40,23 50,23 C60,23 70,28 70,47 C70,40 66,33 50,33 C34,33 30,40 30,47 Z" fill="#2B2119"/><circle cx="50" cy="34.5" r="1.7" fill="#B0344B"/><circle cx="43" cy="45" r="1.7" fill="#3A2A1E"/><circle cx="57" cy="45" r="1.7" fill="#3A2A1E"/><path d="M39.5,40.5 Q43,39 46.5,40.5" stroke="#2B2119" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M53.5,40.5 Q57,39 60.5,40.5" stroke="#2B2119" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M44,52.5 Q50,57 56,52.5" stroke="#3A2A1E" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol><symbol id="p2" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#F0EBE6"/><path d="M14,100 C14,77 32,69 50,69 C68,69 86,77 86,100 Z" fill="#4E7E93"/><path d="M50,69 L44,80 L50,84 L56,80 Z" fill="rgba(255,255,255,.14)"/><rect x="44" y="58" width="12" height="13" rx="5" fill="#BC7F4F"/><ellipse cx="50" cy="45" rx="19" ry="21" fill="#BC7F4F"/><circle cx="31.5" cy="46" r="3.4" fill="#BC7F4F"/><circle cx="68.5" cy="46" r="3.4" fill="#BC7F4F"/><path d="M33,46 C33,62 41,68 50,68 C59,68 67,62 67,46 C67,55 59,58 50,58 C41,58 33,55 33,46 Z" fill="#2B2119" opacity="0.92"/><path d="M30,47 C30,28 40,23 50,23 C60,23 70,28 70,47 C70,40 66,33 50,33 C34,33 30,40 30,47 Z" fill="#2B2119"/><circle cx="43" cy="45" r="1.7" fill="#3A2A1E"/><circle cx="57" cy="45" r="1.7" fill="#3A2A1E"/><path d="M39.5,40.5 Q43,39 46.5,40.5" stroke="#2B2119" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M53.5,40.5 Q57,39 60.5,40.5" stroke="#2B2119" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M44,52.5 Q50,57 56,52.5" stroke="#3A2A1E" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol><symbol id="p3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#DCE9EF"/><path d="M14,100 C14,77 32,69 50,69 C68,69 86,77 86,100 Z" fill="#78A5B9"/><path d="M50,69 L44,80 L50,84 L56,80 Z" fill="rgba(255,255,255,.14)"/><rect x="44" y="58" width="12" height="13" rx="5" fill="#E8B98C"/><ellipse cx="50" cy="45" rx="19" ry="21" fill="#E8B98C"/><circle cx="31.5" cy="46" r="3.4" fill="#E8B98C"/><circle cx="68.5" cy="46" r="3.4" fill="#E8B98C"/><path d="M30,47 C30,28 40,23 50,23 C60,23 70,28 70,47 C70,40 66,33 50,33 C34,33 30,40 30,47 Z" fill="#C6C0B8"/><circle cx="50" cy="34.5" r="1.7" fill="#B0344B"/><circle cx="43" cy="45" r="5.6" fill="none" stroke="#5b5048" stroke-width="1.4"/><circle cx="57" cy="45" r="5.6" fill="none" stroke="#5b5048" stroke-width="1.4"/><path d="M48.6,45 H51.4" stroke="#5b5048" stroke-width="1.4"/><circle cx="43" cy="45" r="1.7" fill="#3A2A1E"/><circle cx="57" cy="45" r="1.7" fill="#3A2A1E"/><path d="M39.5,40.5 Q43,39 46.5,40.5" stroke="#C6C0B8" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M53.5,40.5 Q57,39 60.5,40.5" stroke="#C6C0B8" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M44,52.5 Q50,57 56,52.5" stroke="#3A2A1E" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol><symbol id="p4" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#E8E0D8"/><path d="M14,100 C14,77 32,69 50,69 C68,69 86,77 86,100 Z" fill="#0B3E73"/><path d="M50,69 L44,80 L50,84 L56,80 Z" fill="rgba(255,255,255,.14)"/><rect x="44" y="58" width="12" height="13" rx="5" fill="#BC7F4F"/><ellipse cx="50" cy="45" rx="19" ry="21" fill="#BC7F4F"/><circle cx="31.5" cy="46" r="3.4" fill="#BC7F4F"/><circle cx="68.5" cy="46" r="3.4" fill="#BC7F4F"/><path d="M31,45 C31,36 38,30 50,30 C62,30 69,36 69,45 C69,42 64,40 60,40 C55,40 56,36 50,36 C44,36 45,40 40,40 C36,40 31,42 31,45 Z" fill="#C6C0B8"/><circle cx="43" cy="45" r="5.6" fill="none" stroke="#5b5048" stroke-width="1.4"/><circle cx="57" cy="45" r="5.6" fill="none" stroke="#5b5048" stroke-width="1.4"/><path d="M48.6,45 H51.4" stroke="#5b5048" stroke-width="1.4"/><circle cx="43" cy="45" r="1.7" fill="#3A2A1E"/><circle cx="57" cy="45" r="1.7" fill="#3A2A1E"/><path d="M39.5,40.5 Q43,39 46.5,40.5" stroke="#C6C0B8" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M53.5,40.5 Q57,39 60.5,40.5" stroke="#C6C0B8" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M44,52.5 Q50,57 56,52.5" stroke="#3A2A1E" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol><symbol id="p5" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#EAF1F6"/><path d="M14,100 C14,77 32,69 50,69 C68,69 86,77 86,100 Z" fill="#C06A45"/><path d="M50,69 L44,80 L50,84 L56,80 Z" fill="rgba(255,255,255,.14)"/><rect x="44" y="58" width="12" height="13" rx="5" fill="#9E6638"/><ellipse cx="50" cy="45" rx="19" ry="21" fill="#9E6638"/><circle cx="31.5" cy="46" r="3.4" fill="#9E6638"/><circle cx="68.5" cy="46" r="3.4" fill="#9E6638"/><path d="M30,47 C30,28 40,23 50,23 C60,23 70,28 70,47 C70,40 66,33 50,33 C34,33 30,40 30,47 Z" fill="#2B2119"/><circle cx="43" cy="45" r="1.7" fill="#3A2A1E"/><circle cx="57" cy="45" r="1.7" fill="#3A2A1E"/><path d="M39.5,40.5 Q43,39 46.5,40.5" stroke="#2B2119" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M53.5,40.5 Q57,39 60.5,40.5" stroke="#2B2119" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M44,52.5 Q50,57 56,52.5" stroke="#3A2A1E" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol><symbol id="p6" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#F0EBE6"/><path d="M14,100 C14,77 32,69 50,69 C68,69 86,77 86,100 Z" fill="#4E7E93"/><path d="M50,69 L44,80 L50,84 L56,80 Z" fill="rgba(255,255,255,.14)"/><rect x="44" y="58" width="12" height="13" rx="5" fill="#D29B6A"/><path d="M27,46 C27,70 31,78 33,84 L67,84 C69,78 73,70 73,46 Z" fill="#2B2119"/><ellipse cx="50" cy="45" rx="19" ry="21" fill="#D29B6A"/><circle cx="31.5" cy="46" r="3.4" fill="#D29B6A"/><circle cx="68.5" cy="46" r="3.4" fill="#D29B6A"/><path d="M30,47 C30,28 40,23 50,23 C60,23 70,28 70,47 C70,40 66,33 50,33 C34,33 30,40 30,47 Z" fill="#2B2119"/><circle cx="50" cy="34.5" r="1.7" fill="#B0344B"/><circle cx="43" cy="45" r="1.7" fill="#3A2A1E"/><circle cx="57" cy="45" r="1.7" fill="#3A2A1E"/><path d="M39.5,40.5 Q43,39 46.5,40.5" stroke="#2B2119" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M53.5,40.5 Q57,39 60.5,40.5" stroke="#2B2119" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M44,52.5 Q50,57 56,52.5" stroke="#3A2A1E" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol></defs></svg>
-<canvas id="scene"></canvas>
-<div id="careScrim"></div>
 
 <nav class="nav" id="nav">
   <a class="brand" href="#top" aria-label="Amaely home">
     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs><linearGradient id="ng" x1="30" y1="25" x2="90" y2="97" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A9C6D4"/><stop offset="1" stop-color="#78A5B9"/></linearGradient></defs>
-      <path d="M30,97 L60,25 L90,97" fill="none" stroke="url(#ng)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+      <defs><linearGradient id="ngn" x1="30" y1="25" x2="90" y2="97" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#002855"/><stop offset="1" stop-color="#78A5B9"/></linearGradient></defs>
+      <path d="M30,97 L60,25 L90,97" fill="none" stroke="url(#ngn)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M40,72 L55,72 L57.2,75 L60,63 L62.8,76 L65,72 L80,72" fill="none" stroke="#F06437" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M60,19 C60,25.4 60.9,26.3 67,27 C60.9,27.7 60,28.6 60,35 C60,28.6 59.1,27.7 53,27 C59.1,26.3 60,25.4 60,19 Z" fill="#EAF1F6"/>
     </svg>
     Amaely
   </a>
-  <div class="nav-links">
-    <a href="#care">What we care for</a>
-    <!-- <a href="#how">How it works</a> -->
-    <a href="#stories">Stories</a>
-  </div>
   <a class="btn btn-primary" href="#contact">Talk to us</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero feature" id="hero">
-  <div class="wrap">
-    <p class="eyebrow reveal">Amaely — A living universe of care</p>
-    <h1 class="reveal">Care that feels like family. For everyone you love.</h1>
-    <p class="reveal">A personal nurse and doctor who look after your whole health at home, catch problems early, and keep you well. For you, your parents, and everyone you love, in towns and cities across India.</p>
-    <div class="cta-row reveal">
-      <a class="btn btn-primary" href="#contact">Talk to us</a>
-      <a class="btn btn-ghost" href="#care">See what we do</a>
-    </div>
-  </div>
+<!-- HERO: 3D A logo + heartbeat -->
+<section class="hero">
+  <canvas id="logo3d" aria-label="The Amaely A, with a heartbeat"></canvas>
+  <p class="brandline reveal">Amaely — A living universe of care</p>
+  <h1 class="reveal">Care that feels like family. For everyone you love.</h1>
   <div class="scroll-cue" id="scrollCue"><span>Scroll</span><span class="chev"></span></div>
 </section>
 
-<!-- INTRO -->
-<section class="sec bg-cream">
+<!-- INTRO STATEMENT
+<section class="sec bg-white">
   <div class="wrap">
     <p class="statement reveal">Good health needs attention every day. <span class="hl">Amaely is there.</span></p>
-    <p class="lede reveal" style="margin-top:30px;">A trained nurse visits you at home and checks in regularly. A doctor watches over the whole picture and guides your care. Together they keep you well, catch problems early, and are there the moment something does not feel right.</p>
-  </div>
-</section>
-
-<!-- WHAT WE CARE FOR (3D) -->
-<section class="care feature" id="care">
-  <div class="wrap">
-    <div class="sechead reveal" style="padding-top:24px;"><p class="eyebrow">Whole person care</p><h2 style="margin-top:14px; color:var(--on-d);">We look after the whole person.</h2><p>Not one number. Every part of your health.</p></div>
-  </div>
-  <div class="wrap care-flow">
-    <div class="care-item"><span class="ico"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 30 C18 30 5 22 5 13.5 C5 9.4 8.2 6.5 12 6.5 C14.5 6.5 16.8 8 18 10.2 C19.2 8 21.5 6.5 24 6.5 C27.8 6.5 31 9.4 31 13.5 C31 22 18 30 18 30 Z"/></svg></span><h3>A strong, steady heart</h3><p>We watch blood pressure, sugar, and heart health closely, long before anything feels wrong.</p></div>
-    <div class="care-item"><span class="ico"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5 C18 12 12 18 5 18 C12 18 18 24 18 31 C18 24 24 18 31 18 C24 18 18 12 18 5 Z"/></svg></span><h3>A sharp, clear mind</h3><p>We keep track of memory and focus, so any change is caught early and handled in time.</p></div>
-    <div class="care-item"><span class="ico"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="13"/><circle cx="13.4" cy="15.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="22.6" cy="15.5" r="1.5" fill="currentColor" stroke="none"/><path d="M12.5 21 Q18 25.5 23.5 21"/></svg></span><h3>Calm and cared for</h3><p>We notice mood, stress, and loneliness, so your parent always feels supported, never alone.</p></div>
-    <div class="care-item"><span class="ico"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4 L8 20 L17 20 L16 32 L28 14 L19 14 Z"/></svg></span><h3>Strong and steady</h3><p>We help them stay mobile and safe from falls, so they keep doing what they love.</p></div>
-    <div class="care-item"><span class="ico"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="11"/><circle cx="18" cy="18" r="4.5"/></svg></span><h3>Always watched over</h3><p>Every part of their health, looked after together, by a team that truly knows them.</p></div>
-  </div>
-</section>
-
-
-<!-- HOW IT WORKS -->
-<!-- <section class="sec bg-cream" id="how">
-  <div class="wrap">
-    <div class="sechead reveal"><p class="eyebrow">How it works</p><h2 style="margin-top:14px;">Simple, from the first day.</h2></div>
-    <div class="steps">
-      <div class="step reveal"><div class="num">1</div><div><h3>We get to know you</h3><p>A full health check at home, so we understand you completely.</p></div></div>
-      <div class="step reveal"><div class="num">2</div><div><h3>We make a care plan just for you</h3><p>Simple goals for your health, set by a doctor.</p></div></div>
-      <div class="step reveal"><div class="num">3</div><div><h3>A nurse visits regularly</h3><p>Vitals, medicines, and a friendly check on how you are doing.</p></div></div>
-      <div class="step reveal"><div class="num">4</div><div><h3>A doctor watches over everything</h3><p>Reviews your health and adjusts your care as needed.</p></div></div>
-      <div class="step reveal"><div class="num">5</div><div><h3>We act early</h3><p>If anything looks wrong, we step in before it becomes serious.</p></div></div>
-    </div>
   </div>
 </section> -->
-
 
 <!-- TRUST -->
 <section class="sec bg-white">
   <div class="wrap">
-    <div class="sechead reveal"><p class="eyebrow">Why families trust us</p><h2 style="margin-top:14px;">Care you can rely on.</h2></div>
+    <div class="sechead reveal"><span class="eyebrow">Why families trust us</span><h2>Care you can rely on.</h2></div>
     <div class="grid-4">
       <div class="trust reveal"><div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3 L27 7 V15 C27 22 22 27 16 29 C10 27 5 22 5 15 V7 Z"/><path d="M11 16 L15 20 L21 12"/></svg></div><h3>Qualified team</h3><p>Trained nurses and experienced doctors.</p></div>
       <div class="trust reveal"><div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 H9 L12 9 L17 23 L20 15 H29"/></svg></div><h3>There in an emergency</h3><p>We act fast and help arrange hospital care.</p></div>
       <div class="trust reveal"><div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="14" width="18" height="13" rx="2.5"/><path d="M11 14 V10 a5 5 0 0 1 10 0 V14"/></svg></div><h3>Private and safe</h3><p>Your health information is protected.</p></div>
-      <div class="trust reveal"><div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 16 L16 9 M16 16 L21 19"/></svg></div><h3>Family stays informed</h3><p>Simple updates, wherever they are.</p></div>
+      <div class="trust reveal"><div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 16 L16 9 M16 16 L21 19"/></svg></div><h3>You stay informed</h3><p>Simple updates, wherever you are.</p></div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="sec bg-cream2" id="stories">
+<section class="sec bg-cream" id="stories">
   <div class="wrap">
-    <div class="sechead reveal"><p class="eyebrow">Stories</p><h2 style="margin-top:14px;">Families who let us in.</h2></div>
-    <div class="marquee reveal">
-      <div class="marquee-track">
-        <div class="quote"><p>"I live in Bengaluru and my father is in Kollam. The nurse visits him every week, and the doctor caught his blood pressure creeping up before it became serious. I finally sleep at night."</p><div class="who"><span class="av"><svg viewBox="0 0 100 100"><use href="#p1"/></svg></span><div class="qn"><div class="nm">Priya Nair</div><div class="loc">Bengaluru, for her father in Kollam</div></div></div></div>
+    <div class="sechead reveal"><span class="eyebrow">Stories</span><h2>Families who let us in.</h2><p class="tnote">Example stories for now. We will share real families, with their permission, as we grow.</p></div>
+  </div>
+  <div class="marquee reveal">
+    <div class="marquee-track">
+      <div class="quote"><p>"I live in Bengaluru and my father is in Kollam. The nurse visits him every week, and the doctor caught his blood pressure creeping up before it became serious. I finally sleep at night."</p><div class="who"><span class="av"><svg viewBox="0 0 100 100"><use href="#p1"/></svg></span><div class="qn"><div class="nm">Priya Nair</div><div class="loc">Bengaluru, for her father in Kollam</div></div></div></div>
         <div class="quote"><p>"I kept putting my own health last. Amaely made it simple. A nurse checks on me, the doctor sorted out my sugar medicines, and for once someone actually knows my history."</p><div class="who"><span class="av"><svg viewBox="0 0 100 100"><use href="#p5"/></svg></span><div class="qn"><div class="nm">Rajesh Kumar</div><div class="loc">Indore</div></div></div></div>
         <div class="quote"><p>"At my age I did not want to keep running to hospitals. Now my nurse comes home, knows me by name, and I feel looked after. It is a comfort I did not expect."</p><div class="who"><span class="av"><svg viewBox="0 0 100 100"><use href="#p3"/></svg></span><div class="qn"><div class="nm">Lakshmi Devi</div><div class="loc">Warangal</div></div></div></div>
         <div class="quote"><p>"Both my parents are with Amaely. One team, one number to call, and they treat my parents like their own. Worth every bit of the peace it gives me."</p><div class="who"><span class="av"><svg viewBox="0 0 100 100"><use href="#p2"/></svg></span><div class="qn"><div class="nm">Arjun Mehta</div><div class="loc">Pune, for both his parents</div></div></div></div>
@@ -285,20 +191,20 @@
         <div class="quote"><p>"I kept putting my own health last. Amaely made it simple. A nurse checks on me, the doctor sorted out my sugar medicines, and for once someone actually knows my history."</p><div class="who"><span class="av"><svg viewBox="0 0 100 100"><use href="#p5"/></svg></span><div class="qn"><div class="nm">Rajesh Kumar</div><div class="loc">Indore</div></div></div></div>
         <div class="quote"><p>"At my age I did not want to keep running to hospitals. Now my nurse comes home, knows me by name, and I feel looked after. It is a comfort I did not expect."</p><div class="who"><span class="av"><svg viewBox="0 0 100 100"><use href="#p3"/></svg></span><div class="qn"><div class="nm">Lakshmi Devi</div><div class="loc">Warangal</div></div></div></div>
         <div class="quote"><p>"Both my parents are with Amaely. One team, one number to call, and they treat my parents like their own. Worth every bit of the peace it gives me."</p><div class="who"><span class="av"><svg viewBox="0 0 100 100"><use href="#p2"/></svg></span><div class="qn"><div class="nm">Arjun Mehta</div><div class="loc">Pune, for both his parents</div></div></div></div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="sec bg-navy" id="contact">
-  <div class="wrap cta-final">
-    <h2 class="reveal">Bring care home, for the people you love.</h2>
-    <p class="reveal">Tell us a little, and we will take it from there.</p>
-    <div class="cta-row reveal">
+<!-- CONTACT -->
+<section class="sec bg-cream" id="contact">
+  <div class="wrap contact">
+    <h2 class="reveal">Talk to us.</h2>
+    <p class="reveal">Tell us a little about the person you care for, and we will take it from there.</p>
+    <div class="ways reveal">
       <a class="btn btn-primary" href="https://wa.me/919676936825" target="_blank" rel="noopener">Message us on WhatsApp</a>
-      <!-- <a class="btn btn-ghost" href="mailto:amaelyash@gmail.com?subject=I%20would%20like%20to%20know%20more%20about%20Amaely">Email us</a> -->
+      <a class="btn btn-ghost" href="mailto:amaelyash@gmail.com?subject=I%20would%20like%20to%20know%20more%20about%20Amaely">Email us</a>
     </div>
+    <p class="detail reveal">WhatsApp <a href="https://wa.me/919676936825" target="_blank" rel="noopener">+91 96769 36825</a>&nbsp;&nbsp;·&nbsp;&nbsp;</p>
     <p class="fineprint reveal">Free first visit. No commitment.</p>
   </div>
 </section>
@@ -306,32 +212,23 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <span class="brand">
-          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs><linearGradient id="fg" x1="30" y1="25" x2="90" y2="97" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A9C6D4"/><stop offset="1" stop-color="#78A5B9"/></linearGradient></defs>
-            <path d="M30,97 L60,25 L90,97" fill="none" stroke="url(#fg)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M40,72 L55,72 L57.2,75 L60,63 L62.8,76 L65,72 L80,72" fill="none" stroke="#F06437" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M60,19 C60,25.4 60.9,26.3 67,27 C60.9,27.7 60,28.6 60,35 C60,28.6 59.1,27.7 53,27 C59.1,26.3 60,25.4 60,19 Z" fill="#EAF1F6"/>
-          </svg>
-          Amaely
-        </span>
-        <p class="ftag">A living universe of care. Caring for the people you love, like family.</p>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul><li><a href="#care">What we care for</a></li><li><a href="#stories">Stories</a></li></ul>
-      </div>
-      <div>
-        <h4>Get in touch</h4>
-        <ul>
-          <li><a href="mailto:amaelyash@gmail.com">amaelyash@gmail.com</a></li>
-          <li><a href="https://wa.me/919676936825" target="_blank" rel="noopener">WhatsApp +91 96769 36825</a></li>
-          <li>Serving towns and cities across India</li>
-        </ul>
+    <div class="top">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="fgn" x1="30" y1="25" x2="90" y2="97" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A9C6D4"/><stop offset="1" stop-color="#78A5B9"/></linearGradient></defs>
+          <path d="M30,97 L60,25 L90,97" fill="none" stroke="url(#fgn)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M40,72 L55,72 L57.2,75 L60,63 L62.8,76 L65,72 L80,72" fill="none" stroke="#F06437" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Amaely
+      </a>
+      <div class="links">
+        <a href="#stories">Stories</a>
+        <a href="#contact">Talk to us</a>
+        <a href="mailto:amaelyash@gmail.com">Email</a>
+        <a href="https://wa.me/919676936825" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
+    <p class="ftag">A living universe of care. Caring for the people you love, like family. Now serving towns and cities across India.</p>
     <div class="fbottom">
       <span>&copy; 2026 Amaely. Made with care.</span>
       <span>Amaely supports your wellbeing. It does not replace emergency medical services.</span>
@@ -340,103 +237,78 @@
 </footer>
 
 <script>
-/* 3D: navy cosmos at hero, morphing care shapes (heart, DNA, brain and more) at the care section */
+/* ---------- Hero: 3D extruded "A" with an animated orange heartbeat ---------- */
 (function(){
   var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var canvas=document.getElementById('scene'); if(!window.THREE) return;
-  var renderer,scene,camera,points,lines,posAttr,colAttr,linePos,lineMat,sprite;
-  var small=window.innerWidth<760;
-  var N=small?2200:4600, L=small?110:230, NUM=6, SPAN=5;
-  var forms=[],cols=[], cur=new Float32Array(N*3), curC=new Float32Array(N*3), phase=new Float32Array(N), pairs=[];
-  var camZByStage=[78,46,54,52,50,48];
-  function rnd(a,b){return a+Math.random()*(b-a);}
-  function onS(r){var th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);return[r*Math.sin(ph)*Math.cos(th),r*Math.sin(ph)*Math.sin(th),r*Math.cos(ph)];}
-  function gCosmos(){var a=new Float32Array(N*3);for(var i=0;i<N;i++){var r=Math.pow(Math.random(),.6)*54,p=onS(r);a[i*3]=p[0];a[i*3+1]=p[1]*.85;a[i*3+2]=p[2];}return a;}
-  function gBrain(){var a=new Float32Array(N*3);for(var i=0;i<N;i++){var s=Math.random()<.5?-1:1,c=onS(rnd(14,20)),o=s*10;a[i*3]=c[0]*.82+o;a[i*3+1]=c[1]*.98+Math.sin(c[0]*.3)*2;a[i*3+2]=c[2]*.82;}return a;}
-  function gHeart(){var a=new Float32Array(N*3);for(var i=0;i<N;i++){var t=Math.random()*Math.PI*2,s=1.05+Math.random()*.25,x=16*Math.pow(Math.sin(t),3),y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t),z=rnd(-5,5)*(.7+.3*Math.random()),k=1.4*s;a[i*3]=x*k;a[i*3+1]=y*k+2;a[i*3+2]=z*1.5;}return a;}
-  function gMol(){var a=new Float32Array(N*3),K=small?7:11,ctr=[];for(var j=0;j<K;j++)ctr.push(onS(rnd(15,36)));for(var i=0;i<N;i++){var c=ctr[(Math.random()*K)|0],o=onS(rnd(2,7.5));a[i*3]=c[0]+o[0];a[i*3+1]=c[1]+o[1];a[i*3+2]=c[2]+o[2];}return a;}
-  function gHelix(){var a=new Float32Array(N*3),H=60,R=15;for(var i=0;i<N;i++){var u=Math.random(),y=(u-.5)*H,st=Math.random()<.5?0:Math.PI,an=u*Math.PI*7+st;if(Math.random()<.2){var f=Math.random();a[i*3]=Math.cos(u*Math.PI*7)*R*(1-2*f);a[i*3+1]=y;a[i*3+2]=Math.sin(u*Math.PI*7)*R*(1-2*f);}else{a[i*3]=Math.cos(an)*R;a[i*3+1]=y;a[i*3+2]=Math.sin(an)*R;}}return a;}
-  function gField(){var a=new Float32Array(N*3);for(var i=0;i<N;i++){var r=Math.sqrt(Math.random())*58,th=Math.random()*Math.PI*2;a[i*3]=Math.cos(th)*r;a[i*3+1]=Math.sin(r*.18)*5+rnd(-4,4);a[i*3+2]=Math.sin(th)*r*.6;}return a;}
-  function gTorus(){var a=new Float32Array(N*3),R=24,rr=7.5;for(var i=0;i<N;i++){var u=Math.random()*Math.PI*2,v=Math.random()*Math.PI*2,rj=rr+rnd(-1.5,1.5);a[i*3]=(R+rj*Math.cos(v))*Math.cos(u);a[i*3+1]=rj*Math.sin(v);a[i*3+2]=(R+rj*Math.cos(v))*Math.sin(u);}return a;}
-  function gGlobe(){var a=new Float32Array(N*3),R=21;for(var i=0;i<N;i++){var b=14,lat=(Math.floor(Math.random()*b)/(b-1)-.5)*Math.PI;lat+=rnd(-.04,.04);var lon=Math.random()*Math.PI*2;a[i*3]=R*Math.cos(lat)*Math.cos(lon);a[i*3+1]=R*Math.sin(lat);a[i*3+2]=R*Math.cos(lat)*Math.sin(lon);}return a;}
-  var P=[[1,1,1],[.47,.65,.72],[.66,.78,.83],[.94,.92,.90],[.66,.85,.93]];
-  function gCols(){var a=new Float32Array(N*3);for(var i=0;i<N;i++){var c;if(Math.random()<.04){c=[.94,.39,.22];}else{c=P[(Math.random()*P.length)|0];}a[i*3]=c[0];a[i*3+1]=c[1];a[i*3+2]=c[2];}return a;}
-  function dot(){var c=document.createElement('canvas');c.width=c.height=64;var x=c.getContext('2d');var g=x.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.3,'rgba(255,255,255,.85)');g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;x.beginPath();x.arc(32,32,32,0,7);x.fill();return new THREE.CanvasTexture(c);}
+  var canvas=document.getElementById('logo3d'); if(!canvas||!window.THREE) return;
+  var renderer,scene,camera,group,pulseCurve,glow,t=0;
+  function size(){return {w:canvas.clientWidth||440, h:canvas.clientHeight||420};}
   function init(){
-    renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,small?1.75:2));
-    scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(60,1,.1,700);camera.position.set(0,0,80);sprite=dot();
-    var g=[gCosmos,gHeart,gBrain,gTorus,gHelix,gGlobe];
-    for(var s=0;s<NUM;s++){forms.push(g[s]());cols.push(gCols());}
-    for(var i=0;i<N;i++){phase[i]=Math.random()*Math.PI*2;cur[i*3]=forms[0][i*3];cur[i*3+1]=forms[0][i*3+1];cur[i*3+2]=forms[0][i*3+2];curC[i*3]=cols[0][i*3];curC[i*3+1]=cols[0][i*3+1];curC[i*3+2]=cols[0][i*3+2];}
-    var ge=new THREE.BufferGeometry();posAttr=new THREE.BufferAttribute(cur,3);posAttr.setUsage(THREE.DynamicDrawUsage);colAttr=new THREE.BufferAttribute(curC,3);colAttr.setUsage(THREE.DynamicDrawUsage);ge.setAttribute('position',posAttr);ge.setAttribute('color',colAttr);
-    var m=new THREE.PointsMaterial({size:small?.86:.74,map:sprite,vertexColors:true,transparent:true,opacity:.92,depthWrite:false,blending:THREE.AdditiveBlending,sizeAttenuation:true});
-    points=new THREE.Points(ge,m);scene.add(points);
-    for(var k=0;k<L;k++)pairs.push([(Math.random()*N)|0,(Math.random()*N)|0]);
-    linePos=new Float32Array(L*2*3);var lg=new THREE.BufferGeometry();var lpa=new THREE.BufferAttribute(linePos,3);lpa.setUsage(THREE.DynamicDrawUsage);lg.setAttribute('position',lpa);
-    lineMat=new THREE.LineBasicMaterial({color:0x9fc4d6,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false});
-    lines=new THREE.LineSegments(lg,lineMat);lines.geometry._pa=lpa;scene.add(lines);
-    resize();window.addEventListener('resize',resize);
+    renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    var s=size(); renderer.setSize(s.w,s.h,false);
+    scene=new THREE.Scene();
+    camera=new THREE.PerspectiveCamera(44, s.w/s.h, 0.1, 800); camera.position.set(0,2,132);
+    scene.add(new THREE.AmbientLight(0xffffff,0.82));
+    var d=new THREE.DirectionalLight(0xffffff,0.55); d.position.set(-0.4,1,0.85); scene.add(d);
+    var d2=new THREE.DirectionalLight(0xbcd3e0,0.25); d2.position.set(0.6,-0.3,0.5); scene.add(d2);
+    group=new THREE.Group(); scene.add(group);
+
+    // chevron "A" shape (thin legs, V notch) -> extrude
+    var sh=new THREE.Shape();
+    sh.moveTo(0,40); sh.lineTo(31,-38); sh.lineTo(22,-38); sh.lineTo(0,16); sh.lineTo(-22,-38); sh.lineTo(-31,-38); sh.closePath();
+    var geo=new THREE.ExtrudeGeometry(sh,{depth:13, bevelEnabled:true, bevelThickness:1.4, bevelSize:1.4, bevelSegments:2, steps:1});
+    geo.center();
+    // vertex-color gradient: navy (bottom) -> light slate (top)
+    geo.computeBoundingBox(); var bb=geo.boundingBox, miny=bb.min.y, maxy=bb.max.y;
+    var pos=geo.attributes.position, cols=new Float32Array(pos.count*3);
+    var c0={r:0x00/255,g:0x28/255,b:0x55/255}, c1={r:0xA9/255,g:0xC6/255,b:0xD4/255};
+    for(var i=0;i<pos.count;i++){var f=(pos.getY(i)-miny)/(maxy-miny); f=Math.max(0,Math.min(1,f));
+      cols[i*3]=c0.r+(c1.r-c0.r)*f; cols[i*3+1]=c0.g+(c1.g-c0.g)*f; cols[i*3+2]=c0.b+(c1.b-c0.b)*f;}
+    geo.setAttribute('color',new THREE.BufferAttribute(cols,3));
+    var mat=new THREE.MeshStandardMaterial({vertexColors:true, roughness:0.82, metalness:0.04});
+    group.add(new THREE.Mesh(geo,mat));
+
+    // orange heartbeat pulse across the A (front face)
+    var zf=8.0, yb=-9;
+    var pts=[[-22,0],[-7,0],[-4,-3.4],[0,8.6],[3.4,-4.6],[7,0],[22,0]].map(function(p){return new THREE.Vector3(p[0], yb+p[1], zf);});
+    pulseCurve=new THREE.CatmullRomCurve3(pts,false,'catmullrom',0.5);
+    var tube=new THREE.TubeGeometry(pulseCurve, 110, 1.15, 9, false);
+    group.add(new THREE.Mesh(tube,new THREE.MeshBasicMaterial({color:0xF06437})));
+    // round caps
+    [pts[0],pts[pts.length-1]].forEach(function(p){var cap=new THREE.Mesh(new THREE.SphereGeometry(1.15,12,12),new THREE.MeshBasicMaterial({color:0xF06437}));cap.position.copy(p);group.add(cap);});
+    // travelling "signal" along the pulse
+    glow=new THREE.Mesh(new THREE.SphereGeometry(2.3,16,16), new THREE.MeshBasicMaterial({color:0xFF8459}));
+    group.add(glow);
+
+    group.rotation.x=-0.04;
+    window.addEventListener('resize',onResize);
   }
-  function resize(){small=window.innerWidth<760;var w=window.innerWidth,h=window.innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
-  function sm(x){return x*x*(3-2*x);}
-  var careItems=document.querySelectorAll('.care-item');
-  function careProgress(){var nC=careItems.length;
-    if(nC<2){var r=document.getElementById('care').getBoundingClientRect();return Math.max(0,Math.min(1,(innerHeight*0.5-r.top)/r.height));}
-    var bandC=innerHeight*0.5, cs=[];
-    for(var i=0;i<nC;i++){var r=careItems[i].getBoundingClientRect();cs.push(r.top+r.height/2);}
-    var stage;
-    if(bandC<=cs[0]){var sp=innerHeight*0.6; stage=Math.max(0,Math.min(1,1-(cs[0]-bandC)/sp));}
-    else if(bandC>=cs[nC-1]){stage=nC;}
-    else {stage=0; for(var i=0;i<nC-1;i++){if(bandC>=cs[i]&&bandC<cs[i+1]){stage=1+i+(bandC-cs[i])/(cs[i+1]-cs[i]);break;}}}
-    return Math.max(0,Math.min(1,stage/SPAN));
+  function onResize(){var s=size(); renderer.setSize(s.w,s.h,false); camera.aspect=s.w/s.h; camera.updateProjectionMatrix();}
+  function frame(){
+    t+=0.016;
+    if(!reduced){ group.rotation.y=Math.sin(t*0.45)*0.34; group.position.y=Math.sin(t*0.7)*1.6; }
+    else { group.rotation.y=0.18; }
+    if(glow){ var tt=reduced?0.5:((t*0.42)%1); var p=pulseCurve.getPointAt(tt); glow.position.copy(p); glow.visible=!reduced; }
+    camera.lookAt(0,0,0);
+    renderer.render(scene,camera);
+    requestAnimationFrame(frame);
   }
-  var prog=0,target=0,mx=0,my=0,tx=0,ty=0,t=0;
-  window.addEventListener('pointermove',function(e){mx=e.clientX/window.innerWidth-.5;my=e.clientY/window.innerHeight-.5;});
-  function update(time){
-    var sF=Math.min(NUM-1,target*SPAN);var from=Math.min(NUM-2,Math.max(0,Math.floor(sF))),e=sm(sF-from),ie=1-e;
-    var fa=forms[from],fb=forms[from+1],ca=cols[from],cb=cols[from+1],amp=reduced?0:.34;
-    for(var i=0;i<N;i++){var i3=i*3,dx=0,dy=0,dz=0;if(amp){var ph=phase[i];dx=Math.sin(time*.5+ph)*amp;dy=Math.cos(time*.46+ph*1.3)*amp;dz=Math.sin(time*.42+ph*.7)*amp;}
-      cur[i3]=fa[i3]*ie+fb[i3]*e+dx;cur[i3+1]=fa[i3+1]*ie+fb[i3+1]*e+dy;cur[i3+2]=fa[i3+2]*ie+fb[i3+2]*e+dz;
-      curC[i3]=ca[i3]*ie+cb[i3]*e;curC[i3+1]=ca[i3+1]*ie+cb[i3+1]*e;curC[i3+2]=ca[i3+2]*ie+cb[i3+2]*e;}
-    posAttr.needsUpdate=true;colAttr.needsUpdate=true;
-    var near=function(s){return Math.max(0,1-Math.abs(sF-s)*1.3);};lineMat.opacity=Math.max(near(0),near(2),near(5))*0.22;
-    if(lineMat.opacity>.01){for(var k=0;k<L;k++){var a=pairs[k][0]*3,b=pairs[k][1]*3,o=k*6;linePos[o]=cur[a];linePos[o+1]=cur[a+1];linePos[o+2]=cur[a+2];linePos[o+3]=cur[b];linePos[o+4]=cur[b+1];linePos[o+5]=cur[b+2];}lines.geometry._pa.needsUpdate=true;}
-    var cz=camZByStage[from]*ie+camZByStage[from+1]*e;tx+=(mx-tx)*.04;ty+=(my-ty)*.04;
-    camera.position.x=tx*7;camera.position.y=-ty*5;camera.position.z=cz;
-    points.rotation.y=time*.02+target*.5;points.rotation.x=Math.sin(time*.24)*.04;lines.rotation.copy(points.rotation);camera.lookAt(0,0,0);
-  }
-  function loop(){t+=.016;var tgt=careProgress();prog+=(tgt-prog)*.08;target=prog;update(t);target=tgt;renderer.render(scene,camera);requestAnimationFrame(loop);}
   init();
-  if(reduced){target=careProgress();update(0);renderer.render(scene,camera);window.addEventListener('scroll',function(){target=careProgress();update(0);renderer.render(scene,camera);},{passive:true});}
-  else{loop();}
+  if(reduced){ frame(); } else { frame(); }
 })();
 
-/* nav, scrim toggle, reveals, care focus-fade, scroll cue */
+/* ---------- nav, reveals, testimonials, scroll cue ---------- */
 (function(){
   var nav=document.getElementById('nav');
   function onScroll(){nav.classList.toggle('scrolled',window.scrollY>20);}
-  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
   var cue=document.getElementById('scrollCue');
   if(cue){window.addEventListener('scroll',function(){cue.style.opacity=window.scrollY>60?'0':'1';},{passive:true});}
-
-  var scrim=document.getElementById('careScrim'), care=document.getElementById('care');
-  if('IntersectionObserver' in window && scrim && care){
-    var so=new IntersectionObserver(function(es){es.forEach(function(en){scrim.classList.toggle('on',en.isIntersecting);});},{threshold:0, rootMargin:'-12% 0px -12% 0px'});
-    so.observe(care);
-  }
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.16});
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
   } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
-
-  var items=Array.prototype.slice.call(document.querySelectorAll('.care-item'));
-  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduced && items.length){
-    function flow(){var vh=window.innerHeight,bandC=vh*0.5;
-      for(var i=0;i<items.length;i++){var r=items[i].getBoundingClientRect(),c=r.top+r.height/2;var d=Math.abs(c-bandC)/(vh*0.5);var o=Math.max(0,Math.min(1,1-d));o=o*o*(3-2*o);var sc=0.94+0.06*o;items[i].style.opacity=o;items[i].style.transform='translateY('+((c-bandC)*0.02)+'px) scale('+sc.toFixed(3)+')';}
-      requestAnimationFrame(flow);}
-    requestAnimationFrame(flow);
-  }
 })();
 </script>
 </body>
