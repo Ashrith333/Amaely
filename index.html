@@ -79,13 +79,46 @@
 
   /* trust */
   .sechead h2{font-size:clamp(1.9rem,4vw,2.9rem);}
-  .sechead .eyebrow{margin-bottom:14px; display:block;}
-  .grid-4{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:24px;margin-top:48px;}
+  .sechead .eyebrow{margin-bottom:14px;display:block;}
+
+  .grid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+
+  @media(max-width:700px){
+    .grid-6{
+      display:flex;
+      overflow-x:auto;
+      gap:16px;
+      margin-top:32px;
+      padding-bottom:12px;
+      scroll-snap-type:x mandatory;
+    }
+
+    .grid-6::-webkit-scrollbar{
+      display:none;
+    }
+
+    .trust{
+      min-width:82%;
+      scroll-snap-align:start;
+    }
+  }
   .trust .ico{width:46px;height:46px;display:flex;align-items:center;justify-content:center;border-radius:13px;background:rgba(120,165,185,.16);color:var(--slate-d);margin-bottom:16px;}
   .trust .ico svg{width:26px;height:26px;}
   .trust h3{font-size:1.28rem;}
-  .trust p{margin-top:9px; color:var(--ink-soft); font-size:1.05rem;}
+  .trust p{margin-top:9px;color:var(--ink-soft);font-size:1.05rem;}
+  .swipe-hint{display:none;color:var(--ink-soft);font-size:.95rem;margin-top:12px;}
 
+    @media(max-width:700px){
+      .swipe-hint{
+        display:block;
+        animation:pulseSwipe 2s infinite;
+      }
+    }
+
+    @keyframes pulseSwipe{
+      0%,100%{opacity:.5;}
+      50%{opacity:1;}
+    }
   /* testimonials */
   .tnote{margin-top:12px; font-size:1rem; color:var(--ink-faint); font-style:italic;}
   .marquee{overflow:hidden; margin-top:36px; -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
@@ -179,9 +212,10 @@
     <div class="sechead reveal">
       <span class="eyebrow">Why families trust us</span>
       <h2>Care that puts you first.</h2>
+      <p class="swipe-hint">Swipe to explore more benefits →</p>
     </div>
 
-    <div class="grid-4">
+    <div class="grid-6">
 
       <div class="trust reveal">
         <div class="ico">
@@ -190,7 +224,7 @@
             <path d="M10 16H14L16 12L19 20L22 16"/>
           </svg>
         </div>
-        <h3>Prevent hospital admissions</h3>
+        <h3>Prevent hospitalisation</h3>
         <p>We catch problems early before they become critical.</p>
       </div>
 
@@ -285,7 +319,7 @@
       <a class="btn btn-primary" href="https://wa.me/919676936825" target="_blank" rel="noopener">Message us on WhatsApp</a>
       <a class="btn btn-ghost" href="mailto:amaelyash@gmail.com?subject=I%20would%20like%20to%20know%20more%20about%20Amaely">Email us</a>
     </div>
-    <p class="detail reveal">WhatsApp <a href="https://wa.me/919676936825" target="_blank" rel="noopener">+91 96769 36825</a>&nbsp;&nbsp;·&nbsp;&nbsp;</p>
+    <!-- <p class="detail reveal">WhatsApp <a href="https://wa.me/919676936825" target="_blank" rel="noopener">+91 96769 36825</a>&nbsp;&nbsp;·&nbsp;&nbsp;</p> -->
     <p class="fineprint reveal">Free first visit. No commitment.</p>
   </div>
 </section>
@@ -304,7 +338,7 @@
       </a>
       <div class="links">
         <a href="#stories">Stories</a>
-        <a href="#contact">Talk to us</a>
+        <!-- <a href="#contact">Talk to us</a> -->
         <a href="mailto:amaelyash@gmail.com">Email</a>
         <a href="https://wa.me/919676936825" target="_blank" rel="noopener">WhatsApp</a>
       </div>
