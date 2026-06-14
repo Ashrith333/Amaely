@@ -106,19 +106,33 @@
   .trust .ico svg{width:26px;height:26px;}
   .trust h3{font-size:1.28rem;}
   .trust p{margin-top:9px;color:var(--ink-soft);font-size:1.05rem;}
-  .swipe-hint{display:none;color:var(--ink-soft);font-size:.95rem;margin-top:12px;}
+  .swipe-hint{
+  display:none;
+  color:#F06437;
+  font-size:.95rem;
+  margin-top:14px;
+  font-weight:600;
+  align-items:center;
+  gap:6px;
+}
 
-    @media(max-width:700px){
-      .swipe-hint{
-        display:block;
-        animation:pulseSwipe 2s infinite;
-      }
-    }
+@media(max-width:700px){
+  .swipe-hint{
+    display:flex;
+    animation:pulseSwipe 1.6s infinite;
+  }
+}
 
-    @keyframes pulseSwipe{
-      0%,100%{opacity:.5;}
-      50%{opacity:1;}
-    }
+@keyframes pulseSwipe{
+  0%,100%{
+    opacity:.65;
+    transform:translateX(0);
+  }
+  50%{
+    opacity:1;
+    transform:translateX(6px);
+  }
+}
   /* testimonials */
   .tnote{margin-top:12px; font-size:1rem; color:var(--ink-faint); font-style:italic;}
   .marquee{overflow:hidden; margin-top:36px; -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
@@ -212,7 +226,7 @@
     <div class="sechead reveal">
       <span class="eyebrow">Why families trust us</span>
       <h2>Care that puts you first.</h2>
-      <p class="swipe-hint">Swipe to explore more benefits →</p>
+      <!-- <p class="swipe-hint">Swipe to explore more benefits →</p> -->
     </div>
 
     <div class="grid-6">
@@ -288,6 +302,7 @@
       </div>
 
     </div>
+    <p class="swipe-hint">Swipe to explore more benefits →</p>
   </div>
 </section>
 
