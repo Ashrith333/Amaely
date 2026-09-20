@@ -176,6 +176,144 @@
     .scroll-cue .chev{animation:none;}
     *{transition:none!important;}
   }
+
+  /* ===== nav actions (Brochure + Talk to us) ===== */
+  .nav .nav-actions{display:flex; align-items:center; gap:10px;}
+  .nav .btn-ghost{background:rgba(247,244,240,.55);}
+  .nav .btn-icon{display:none; width:42px; height:42px; padding:0; border-radius:50%; align-items:center; justify-content:center;}
+  .nav .btn-icon svg{width:20px; height:20px; flex:0 0 auto;}
+  @media (max-width:640px){
+    .nav .btn-text{display:none;}
+    .nav .btn-icon{display:inline-flex;}
+    .nav .btn{padding:10px 18px; font-size:.95rem;}
+    .nav .btn-icon{padding:0;}
+  }
+  .btn .bi{width:20px; height:20px; flex:0 0 auto;}
+
+  /* ===== brochure section ===== */
+  #brochure{scroll-margin-top:64px;}
+  #brochure .sechead p{margin-top:12px; font-size:1.05rem; color:var(--ink-soft);}
+  .book-wrap{position:relative; margin-top:40px;}
+
+  .book-stage{
+    position:relative; width:100%; margin:0 auto; outline:none;
+    max-width:min(100%, calc((100vh - 230px) * 1.414));
+    perspective:2600px; -webkit-perspective:2600px; user-select:none; -webkit-user-select:none; -webkit-tap-highlight-color:transparent;
+  }
+  .book-stage::before{content:""; display:block; padding-bottom:70.7%; transition:padding-bottom 1s cubic-bezier(.4,.1,.2,1);}
+  .book-stage.compact[data-state="0"]::before, .book-stage.compact[data-state="2"]::before{padding-bottom:141.4%;}
+
+  .book{
+    position:absolute; top:0; left:0; width:100%; aspect-ratio:842.25/595.5;
+    transform-origin:0 0; transform-style:preserve-3d; -webkit-transform-style:preserve-3d;
+    transition:transform 1s cubic-bezier(.4,.1,.2,1);
+  }
+  .book-stage[data-state="0"] .book{transform:translateX(-25%);}
+  .book-stage[data-state="2"] .book{transform:translateX(25%);}
+  .book-stage.compact[data-state="0"] .book{transform:translateX(-100%) scale(2);}
+  .book-stage.compact[data-state="2"] .book{transform:scale(2);}
+
+  .leaf{
+    position:absolute; top:0; left:50%; width:50%; height:100%; cursor:pointer;
+    transform-origin:0 50%; transform-style:preserve-3d; -webkit-transform-style:preserve-3d;
+    transition:transform 1s cubic-bezier(.4,.1,.2,1);
+  }
+  .leaf.flipped{transform:rotateY(-180deg);}
+  .leaf-1{z-index:2;} .leaf-2{z-index:1;}
+  .book-stage[data-state="2"] .leaf-1{z-index:1;} .book-stage[data-state="2"] .leaf-2{z-index:2;}
+  .leaf.turning{z-index:4;}
+  .book-stage.hint .leaf-1{animation:peek 2.4s cubic-bezier(.4,.1,.2,1) 1;}
+  @keyframes peek{0%,100%{transform:rotateY(0);} 32%{transform:rotateY(-17deg);} 58%{transform:rotateY(0);} 78%{transform:rotateY(-8deg);}}
+
+  .face{
+    position:absolute; inset:0; overflow:hidden; background:#F3F2E8;
+    backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    box-shadow:0 26px 54px -26px rgba(0,26,58,.55), 0 0 0 1px rgba(0,40,85,.08);
+  }
+  .face.back{transform:rotateY(180deg);}
+  .face img{display:block; width:100%; height:100%; object-fit:cover; pointer-events:none;}
+  .face::after{content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(90deg, rgba(0,26,58,.13), rgba(0,26,58,0) 11%);}
+  .face.back::after{background:linear-gradient(270deg, rgba(0,26,58,.13), rgba(0,26,58,0) 11%);}
+  .leaf-1 .face.back{background:url(brochure/spread.webp) left center / 200% 100% no-repeat;}
+  .leaf-2 .face.front{background:url(brochure/spread.webp) right center / 200% 100% no-repeat;}
+
+  /* the four-photo story on pages 2 and 3 */
+  .story{position:absolute; inset:0; z-index:5; transform:translateZ(1px); pointer-events:none; opacity:0; transition:opacity .18s;}
+  .story.play, .story.done{opacity:1;}
+  .story .sp{position:absolute; object-fit:cover; opacity:0; clip-path:inset(0 0 100% 0); -webkit-clip-path:inset(0 0 100% 0);}
+  .story.done .sp{opacity:1; clip-path:inset(0); -webkit-clip-path:inset(0);}
+  .story.play .sp{animation:spReveal .8s cubic-bezier(.2,.7,.2,1) forwards;}
+  .story.play .sp-1{animation-delay:.15s;} .story.play .sp-2{animation-delay:1.45s;}
+  .story.play .sp-3{animation-delay:2.75s;} .story.play .sp-4{animation-delay:4.05s;}
+  @keyframes spReveal{from{opacity:1; clip-path:inset(0 0 100% 0); -webkit-clip-path:inset(0 0 100% 0);} to{opacity:1; clip-path:inset(0); -webkit-clip-path:inset(0);}}
+  .story .arrows{position:absolute; inset:0; width:100%; height:100%; overflow:visible;}
+  .story .arrows line{stroke:#DE3740; stroke-width:3; stroke-dasharray:1; stroke-dashoffset:1;}
+  .story .arrows polygon{fill:#DE3740; transform-box:fill-box; transform-origin:left center; transform:scale(0);}
+  .story.done .arrows line{stroke-dashoffset:0;} .story.done .arrows polygon{transform:none;}
+  .story.play .a1 line{animation:draw .4s ease-out 1s forwards;}   .story.play .a1 polygon{animation:pop .25s ease-out 1.35s forwards;}
+  .story.play .a2 line{animation:draw .4s ease-out 2.3s forwards;} .story.play .a2 polygon{animation:pop .25s ease-out 2.65s forwards;}
+  .story.play .a3 line{animation:draw .4s ease-out 3.6s forwards;} .story.play .a3 polygon{animation:pop .25s ease-out 3.95s forwards;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes pop{to{transform:scale(1);}}
+  .replay{
+    position:absolute; top:2.4%; right:2.2%; pointer-events:auto; opacity:0; cursor:pointer;
+    display:inline-flex; align-items:center; gap:5px; border:1.5px solid rgba(0,40,85,.22); background:rgba(255,255,255,.85);
+    color:var(--navy); font-family:var(--font-display); font-weight:600; font-size:.74rem; letter-spacing:.06em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; transition:border-color .2s, opacity .3s;
+  }
+  .replay svg{width:12px; height:12px;}
+  .replay:hover{border-color:var(--navy);}
+  .story.done .replay{opacity:1;}
+  .story.play .replay{animation:fadeIn .4s ease 5s forwards;}
+  @keyframes fadeIn{to{opacity:1;}}
+
+  .tap-hint{
+    position:absolute; left:50%; bottom:6%; transform:translateX(-50%); pointer-events:none; z-index:6;
+    font-family:var(--font-display); font-weight:600; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
+    color:#fff; background:var(--orange); padding:8px 14px; border-radius:999px; box-shadow:0 10px 24px -10px rgba(240,100,55,.8);
+    animation:bob2 1.8s ease-in-out infinite;
+  }
+  @keyframes bob2{0%,100%{transform:translate(-50%,0);} 50%{transform:translate(-50%,-5px);}}
+
+  .book-bar{display:flex; align-items:center; justify-content:center; gap:14px; margin-top:26px;}
+  .bctl{width:44px; height:44px; border-radius:50%; border:1.7px solid var(--line); background:var(--white); color:var(--ink); cursor:pointer;
+    display:inline-flex; align-items:center; justify-content:center; padding:0; transition:border-color .2s, transform .2s, opacity .2s;}
+  .bctl svg{width:18px; height:18px;}
+  .bctl:hover{border-color:var(--navy); transform:translateY(-1px);}
+  .bctl:disabled{opacity:.3; cursor:default; transform:none;}
+  .bdots{display:flex; gap:4px;}
+  .bdot{font-family:var(--font-display); font-weight:600; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; padding:8px 12px;
+    border-radius:999px; color:var(--ink-faint); cursor:pointer; border:0; background:transparent; transition:background .2s, color .2s;}
+  .bdot:hover{color:var(--ink);}
+  .bdot.on{background:var(--navy); color:#fff;}
+  .book-links{display:flex; justify-content:center; flex-wrap:wrap; gap:8px 28px; margin-top:16px; font-size:1rem;}
+  .blink{background:none; border:0; padding:0; font:inherit; color:var(--navy); font-weight:600; border-bottom:1.5px solid rgba(0,40,85,.25); cursor:pointer; line-height:1.5;}
+  .blink:hover{border-color:var(--navy);}
+  .rotate-hint{display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px; font-size:.95rem; color:var(--ink-faint);}
+  .rotate-hint svg{width:18px; height:18px; flex:0 0 auto;}
+  .rotate-hint[hidden]{display:none;}
+
+  /* full screen reader */
+  .fs-close{display:none; position:absolute; top:14px; right:14px; z-index:7;}
+  .book-wrap.is-fs{position:fixed; inset:0; z-index:60; margin:0; background:var(--cream-2); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:18px; overflow:auto;}
+  .book-wrap.is-fs .fs-close{display:inline-flex;}
+  .book-wrap.is-fs .book-stage{max-width:none; width:min(calc(100vw - 36px), calc((100vh - 150px) * 1.414)); width:min(calc(100vw - 36px), calc((100dvh - 150px) * 1.414));}
+  .book-wrap.is-fs .book-stage.compact{width:calc(100vw - 36px);}
+  html.book-fs-open{overflow:hidden;}
+
+  @media (max-width:700px){
+    .book-wrap{margin-top:30px;}
+    .book-stage{max-width:100%;}
+    .bdot{padding:7px 9px; font-size:.7rem; letter-spacing:.06em;}
+    .replay{font-size:.58rem; padding:3px 7px; gap:4px;} .replay svg{width:10px; height:10px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .book, .leaf, .book-stage::before{transition:none!important;}
+    .book-stage.hint .leaf-1, .tap-hint{animation:none!important;}
+    .story .sp, .story .arrows line, .story .arrows polygon, .replay{animation:none!important;}
+    .story.play .sp{opacity:1; clip-path:inset(0); -webkit-clip-path:inset(0);}
+    .story.play .arrows line{stroke-dashoffset:0;} .story.play .arrows polygon{transform:none;} .story.play .replay{opacity:1;}
+  }
 </style>
 </head>
 <body id="top">
@@ -190,7 +328,11 @@
     </svg>
     Amaely
   </a>
-  <a class="btn btn-primary" href="#contact">Talk to us</a>
+  <div class="nav-actions">
+    <a class="btn btn-ghost btn-text" href="#brochure">Brochure</a>
+    <a class="btn btn-ghost btn-icon" href="#brochure" aria-label="Brochure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.2C10 4.7 7.6 4 4 4v14c3.6 0 6 .7 8 2.2 2-1.5 4.4-2.2 8-2.2V4c-3.6 0-6 .7-8 2.2z"/><path d="M12 6.2v14"/></svg></a>
+    <a class="btn btn-primary" href="#contact">Talk to us</a>
+  </div>
 </nav>
 
 <!-- HERO: 3D A logo + heartbeat -->
@@ -325,13 +467,82 @@
   </div>
 </section> -->
 
+<!-- BROCHURE -->
+<section class="sec bg-cream2" id="brochure">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <span class="eyebrow">Our brochure</span>
+      <h2>Amaely, in Telugu.</h2>
+      <p>Tap the cover to open it. Swipe or use the arrows to turn the pages.</p>
+    </div>
+
+    <div class="book-wrap" id="bookWrap">
+      <button class="bctl fs-close" id="bFsClose" type="button" aria-label="Exit full screen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <div class="book-stage" id="bookStage" data-state="0" tabindex="0" role="group" aria-label="Amaely brochure. Use the arrow keys to turn pages.">
+        <div class="book" id="book">
+          <div class="leaf leaf-1" id="leaf1">
+            <div class="face front"><img src="brochure/cover.webp" alt="Amaely brochure cover: 24/7 health care at home, in Telugu" loading="lazy" decoding="async"></div>
+            <div class="face back" aria-hidden="true"></div>
+          </div>
+          <div class="leaf leaf-2" id="leaf2">
+            <div class="face front" aria-hidden="true"></div>
+            <div class="face back"><img src="brochure/back.webp" alt="Amaely brochure back page: live healthy and independent at home, with our contact details" loading="lazy" decoding="async"></div>
+          </div>
+
+          <div class="story" id="story">
+            <img class="sp sp-1" src="brochure/photo-1.webp" alt="A worried mother at home, and her children worrying about her from far away" style="left:3.542%;top:16.345%;width:18.885%;height:47.751%" loading="lazy" decoding="async">
+            <img class="sp sp-2" src="brochure/photo-2.webp" alt="The son calls Amaely at midnight, and a nurse sets off to the house" style="left:27.715%;top:16.497%;width:18.796%;height:47.499%" loading="lazy" decoding="async">
+            <img class="sp sp-3" src="brochure/photo-3.webp" alt="The Amaely nurse and the doctor on video check on the mother at home" style="left:52.048%;top:16.383%;width:18.796%;height:47.625%" loading="lazy" decoding="async">
+            <img class="sp sp-4" src="brochure/photo-4.webp" alt="The mother sleeps peacefully, and her children smile with relief" style="left:76.106%;top:16.603%;width:18.707%;height:47.247%" loading="lazy" decoding="async">
+            <svg class="arrows" viewBox="0 0 842.25 595.5" aria-hidden="true" focusable="false">
+              <g class="a1"><line x1="189.9" y1="239.7" x2="225.43" y2="239.7" pathLength="1"/><polygon points="225.43,235.2 231.93,239.7 225.43,244.2"/></g>
+              <g class="a2"><line x1="392.74" y1="239.54" x2="430.38" y2="239.54" pathLength="1"/><polygon points="430.38,235.04 436.88,239.54 430.38,244.04"/></g>
+              <g class="a3"><line x1="597.68" y1="239.47" x2="633.01" y2="239.47" pathLength="1"/><polygon points="633.01,234.97 639.51,239.47 633.01,243.97"/></g>
+            </svg>
+            <button class="replay" id="replay" type="button" aria-label="Replay the story">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>Replay
+            </button>
+          </div>
+        </div>
+        <div class="tap-hint" id="tapHint">Tap to open</div>
+      </div>
+
+      <div class="book-bar">
+        <button class="bctl" id="bPrev" type="button" aria-label="Previous page" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <div class="bdots" id="bDots">
+          <button class="bdot on" type="button" data-go="0">Cover</button>
+          <button class="bdot" type="button" data-go="1">Inside</button>
+          <button class="bdot" type="button" data-go="2">Back</button>
+        </div>
+        <button class="bctl" id="bNext" type="button" aria-label="Next page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="book-links">
+        <a class="blink" href="brochure/amaely-brochure-telugu.pdf" download="Amaely-brochure-Telugu.pdf">Download PDF</a>
+        <button class="blink" id="bFull" type="button">Full screen</button>
+      </div>
+      <p class="rotate-hint" id="rotateHint" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/><path d="M2 12a5 5 0 0 1 3-4.6M22 12a5 5 0 0 1-3 4.6"/><path d="M5 5.5 5 7.4 3.1 7.4M19 18.5v-1.9h1.9"/></svg>
+        Turn your phone sideways for a bigger view
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="sec bg-cream" id="contact">
   <div class="wrap contact">
     <h2 class="reveal">Talk to us.</h2>
     <p class="reveal">Tell us a little about the person you care for, and we will take it from there.</p>
     <div class="ways reveal">
-      <a class="btn btn-primary" href="https://wa.me/919676936825" target="_blank" rel="noopener">Message us on WhatsApp</a>
+      <a class="btn btn-primary" href="#brochure"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.2C10 4.7 7.6 4 4 4v14c3.6 0 6 .7 8 2.2 2-1.5 4.4-2.2 8-2.2V4c-3.6 0-6 .7-8 2.2z"/><path d="M12 6.2v14"/></svg>Read our brochure</a>
+      <a class="btn btn-ghost" href="https://wa.me/919676936825" target="_blank" rel="noopener">Message us on WhatsApp</a>
       <a class="btn btn-ghost" href="https://www.instagram.com/amaely_com/" target="_blank" rel="noopener">Instagram</a>
     </div>
     <!-- <p class="detail reveal">WhatsApp <a href="https://wa.me/919676936825" target="_blank" rel="noopener">+91 96769 36825</a>&nbsp;&nbsp;·&nbsp;&nbsp;</p> -->
@@ -354,6 +565,7 @@
       <div class="links">
         <!-- <a href="#stories">Stories</a>
         <a href="#contact">Talk to us</a> -->
+        <a href="#brochure">Brochure</a>
         <a href="https://wa.me/919676936825" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://www.instagram.com/amaely_com/" target="_blank" rel="noopener">Instagram</a>
         <a href="mailto:amaelyash@gmail.com">Email</a>
@@ -440,6 +652,111 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.16});
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
   } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+})();
+
+/* ---------- Brochure: page-flip book + photo story ---------- */
+(function(){
+  var wrap=document.getElementById('bookWrap'), stage=document.getElementById('bookStage');
+  if(!wrap||!stage) return;
+  var leaf1=document.getElementById('leaf1'), leaf2=document.getElementById('leaf2'), story=document.getElementById('story');
+  var bPrev=document.getElementById('bPrev'), bNext=document.getElementById('bNext'), dots=document.querySelectorAll('#bDots .bdot');
+  var tapHint=document.getElementById('tapHint'), rotateHint=document.getElementById('rotateHint');
+  var bFull=document.getElementById('bFull'), bFsClose=document.getElementById('bFsClose'), replay=document.getElementById('replay');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse=window.matchMedia('(pointer: coarse)').matches;
+  var FLIP=reduced?0:1000, state=0, isFs=false, playTimer=null, interacted=false;
+
+  function compact(){ return isFs ? (window.innerHeight>window.innerWidth) : (window.innerWidth<=700); }
+  function mode(){
+    var c=compact();
+    stage.classList.toggle('compact',c);
+    rotateHint.hidden=!(state===1 && c && coarse);
+  }
+  function render(){
+    stage.setAttribute('data-state',String(state));
+    leaf1.classList.toggle('flipped',state>=1);
+    leaf2.classList.toggle('flipped',state>=2);
+    bPrev.disabled=state===0; bNext.disabled=state===2;
+    for(var i=0;i<dots.length;i++){dots[i].classList.toggle('on',i===state);}
+    mode();
+  }
+  function go(target,dir){
+    if(target<0||target>2||target===state) return;
+    var from=state; interacted=true; stage.classList.remove('hint'); tapHint.hidden=true;
+    dir=dir||(target>from?1:-1);
+    var flip=function(){
+      var turning=(target>from)?(target===1?leaf1:leaf2):(target===0?leaf1:leaf2);
+      leaf1.classList.remove('turning'); leaf2.classList.remove('turning'); turning.classList.add('turning');
+      state=target; render();
+      clearTimeout(playTimer);
+      playTimer=setTimeout(function(){
+        turning.classList.remove('turning');
+        if(state===1){ story.classList.add((dir>0&&!reduced)?'play':'done'); }
+      },FLIP+60);
+    };
+    if(from===1){ story.classList.remove('play','done'); clearTimeout(playTimer); setTimeout(flip,190); }
+    else flip();
+  }
+  function next(){ go(state+1,1); }
+  function prev(){ go(state-1,-1); }
+
+  bNext.addEventListener('click',next); bPrev.addEventListener('click',prev);
+  for(var i=0;i<dots.length;i++){ dots[i].addEventListener('click',function(){ go(parseInt(this.getAttribute('data-go'),10)); }); }
+  replay.addEventListener('click',function(e){
+    e.stopPropagation(); story.classList.remove('play','done'); void story.offsetWidth; story.classList.add(reduced?'done':'play');
+  });
+
+  // tap on the book: cover opens, back cover reopens, inside: left half back / right half forward
+  var tStartX=0,tStartY=0,tMoved=false;
+  stage.addEventListener('click',function(e){
+    if(tMoved){ tMoved=false; return; }
+    if(state===0){ next(); return; }
+    if(state===2){ prev(); return; }
+    var r=stage.getBoundingClientRect();
+    if(e.clientX-r.left < r.width/2) prev(); else next();
+  });
+  stage.addEventListener('touchstart',function(e){ var t=e.touches[0]; tStartX=t.clientX; tStartY=t.clientY; tMoved=false; },{passive:true});
+  stage.addEventListener('touchend',function(e){
+    var t=e.changedTouches[0], dx=t.clientX-tStartX, dy=t.clientY-tStartY;
+    if(Math.abs(dx)>44 && Math.abs(dx)>Math.abs(dy)*1.3){ tMoved=true; if(dx<0) next(); else prev(); }
+  },{passive:true});
+  stage.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){ next(); e.preventDefault(); }
+    else if(e.key==='ArrowLeft'){ prev(); e.preventDefault(); }
+    else if(e.key==='Enter'||e.key===' '){ if(state===2) prev(); else next(); e.preventDefault(); }
+  });
+
+  // full screen reader (in-page overlay, plus native full screen and landscape lock where the browser allows it)
+  function setFs(on){
+    isFs=on;
+    wrap.classList.toggle('is-fs',on);
+    document.documentElement.classList.toggle('book-fs-open',on);
+    bFull.textContent=on?'Exit full screen':'Full screen';
+    if(on){
+      try{ if(wrap.requestFullscreen){ var p=wrap.requestFullscreen(); if(p&&p.catch) p.catch(function(){}); } }catch(e){}
+      try{ if(screen.orientation&&screen.orientation.lock){ var q=screen.orientation.lock('landscape'); if(q&&q.catch) q.catch(function(){}); } }catch(e){}
+    } else {
+      try{ if(document.fullscreenElement&&document.exitFullscreen){ var x=document.exitFullscreen(); if(x&&x.catch) x.catch(function(){}); } }catch(e){}
+      try{ if(screen.orientation&&screen.orientation.unlock) screen.orientation.unlock(); }catch(e){}
+    }
+    mode();
+  }
+  bFull.addEventListener('click',function(){ setFs(!isFs); });
+  bFsClose.addEventListener('click',function(){ setFs(false); });
+  document.addEventListener('fullscreenchange',function(){ if(!document.fullscreenElement&&isFs){ setFs(false); } });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&isFs) setFs(false); });
+
+  window.addEventListener('resize',mode,{passive:true});
+  window.addEventListener('orientationchange',function(){ setTimeout(mode,120); });
+
+  // nudge the cover once when the section scrolls into view
+  if('IntersectionObserver' in window && !reduced){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting && !interacted && state===0){ stage.classList.add('hint'); io.disconnect(); } });
+    },{threshold:.45});
+    io.observe(stage);
+  }
+  render();
 })();
 </script>
 </body>
